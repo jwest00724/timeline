@@ -15,6 +15,7 @@ class CreateAbbreviationsTable extends Migration
         Schema::create('abbreviations', function(Blueprint $table) {
 			$table->string('seriesAbbreviation');
 			$table->string('seriesName');
+			$table->timestamps();
 		});
     }
 

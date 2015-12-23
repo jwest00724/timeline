@@ -22,6 +22,7 @@ class CreateItemsTable extends Migration
 			$table->date('timelineDate');
 			$table->integer('yearPublished');
 			$table->integer('numberInSeries');
+			$table->timestamps();
 		});
     }
 

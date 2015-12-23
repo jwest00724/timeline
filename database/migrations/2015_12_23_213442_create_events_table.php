@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
 			$table->string('name');
 			$table->string('summary');
 			$table->date('timelineDate');
+			$table->timestamps();
 		});
     }
 

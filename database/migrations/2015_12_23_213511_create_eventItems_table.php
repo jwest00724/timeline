@@ -15,6 +15,7 @@ class CreateEventItemsTable extends Migration
         Schema::create('eventItems', function(Blueprint $table) {
 			$table->integer('eventID');
 			$table->integer('itemID');
+			$table->timestamps();
 		});
     }
 
