@@ -12,8 +12,8 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'creator', 'series',
-		'medium', 'summary', 'timelineDate',
-		'yearPublished', 'numberInSeries',
+        'name', 'series', 'medium',
+		'summary', 'timelineDate',
+		'numberInSeries', 'credit',
     ];
 }

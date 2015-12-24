@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventTagsTable extends Migration
+class CreateEventItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateEventTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventTags', function(Blueprint $table) {
+        Schema::create('event_items', function(Blueprint $table) {
 			$table->integer('eventID');
-			$table->string('tag');
+			$table->integer('itemID');
 			$table->timestamps();
 		});
     }
@@ -26,6 +26,6 @@ class CreateEventTagsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('eventTags');
+        Schema::drop('event_items');
     }
 }

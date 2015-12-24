@@ -6,12 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AbbreviationsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'CreateAbbreviationsTable' => $baseDir . '/database/migrations/2015_12_23_213417_create_abbreviations_table.php',
-    'CreateEventItemsTable' => $baseDir . '/database/migrations/2015_12_23_213511_create_eventItems_table.php',
-    'CreateEventTagsTable' => $baseDir . '/database/migrations/2015_12_23_213500_create_eventTags_table.php',
+    'CreateEventItemsTable' => $baseDir . '/database/migrations/2015_12_23_213511_create_event_items_table.php',
+    'CreateEventTagsTable' => $baseDir . '/database/migrations/2015_12_23_213500_create_event_tags_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2015_12_23_213442_create_events_table.php',
     'CreateItemsTable' => $baseDir . '/database/migrations/2015_12_23_213434_create_items_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'EventItemsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'EventTagsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'EventsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -84,6 +88,7 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'ItemsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
     'PHPUnit_Extensions_PhptTestCase' => $vendorDir . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
