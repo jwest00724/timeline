@@ -15,5 +15,6 @@ class Media extends Model
         'name', 'series', 'medium',
 		'summary', 'timelineDate',
 		'numberInSeries', 'credit',
+		'collection',
     ];
 }

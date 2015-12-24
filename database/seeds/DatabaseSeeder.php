@@ -80,12 +80,14 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Amok Time',
 						'credit'=>'TOS',
 						'medium'=>'Television',
 						'summary'=>'temp', 
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>"It's Only a Paper Moon",
 						'credit'=>'temp',
@@ -93,6 +95,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Measure of a Man',
 						'credit'=>'temp',
@@ -100,6 +103,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Arsenal of Freedom',
 						'credit'=>'temp',
@@ -107,6 +111,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'The Cage',
 						'credit'=>'temp',
@@ -114,6 +119,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 						
 		/* Films */
@@ -123,6 +129,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Film',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'The Wrath of Khan',
 						'credit'=>'temp',
@@ -130,6 +137,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Film',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
+						'collection'=>'temp',
 						'numberInSeries'=>1]);
 	}
 }
