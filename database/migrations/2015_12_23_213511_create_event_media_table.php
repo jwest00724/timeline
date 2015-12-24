@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventItemsTable extends Migration
+class CreateEventMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateEventItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_items', function(Blueprint $table) {
+        Schema::create('event_media', function(Blueprint $table) {
 			$table->integer('eventID');
-			$table->integer('itemID');
+			$table->integer('mediaID');
 			$table->timestamps();
 		});
     }
@@ -26,6 +26,6 @@ class CreateEventItemsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('event_items');
+        Schema::drop('event_media');
     }
 }

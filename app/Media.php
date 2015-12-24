@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Media extends Model
 {
     /**
      * The attributes that are mass assignable.

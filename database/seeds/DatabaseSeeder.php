@@ -13,18 +13,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 		/* Clear tables */
-		DB::table('items')->delete();
+		DB::table('media')->delete();
 		DB::table('events')->delete();
 		DB::table('event_tags')->delete();
-		DB::table('event_items')->delete();
+		DB::table('event_media')->delete();
 		DB::table('abbreviations')->delete();
 		
 		/* Seed tables */
 		$this->call(AbbreviationsTableSeeder::class);
-		$this->call(ItemsTableSeeder::class);
+		$this->call(MediaTableSeeder::class);
 		$this->call(EventsTableSeeder::class);
 		$this->call(EventTagsTableSeeder::class);
-		$this->call(EventItemsTableSeeder::class);
+		$this->call(EventMediaTableSeeder::class);
     }
 }
 
@@ -61,54 +61,54 @@ class EventTagsTableSeeder extends Seeder
 	}
 }
 
-class EventItemsTableSeeder extends Seeder
+class EventMediaTableSeeder extends Seeder
 {
 	public function run() {
-		App\EventItem::create(['eventID'=>1, 'itemID'=>1]);
-		App\EventItem::create(['eventID'=>2, 'itemID'=>7]);
+		App\EventMedia::create(['eventID'=>1, 'mediaID'=>1]);
+		App\EventMedia::create(['eventID'=>2, 'mediaID'=>7]);
 	}
 }
 
-class ItemsTableSeeder extends Seeder
+class MediaTableSeeder extends Seeder
 {
 	public function run()
 	{
 		/* Television Shows */
-		App\Item::create(['name'=>'In the Pale Moonlight',
+		App\Media::create(['name'=>'In the Pale Moonlight',
 						'credit'=>'temp',
 						'series'=>'DS9',
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>'Amok Time',
+		App\Media::create(['name'=>'Amok Time',
 						'credit'=>'TOS',
 						'medium'=>'Television',
 						'summary'=>'temp', 
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>"It's Only a Paper Moon",
+		App\Media::create(['name'=>"It's Only a Paper Moon",
 						'credit'=>'temp',
 						'series'=>'DS9',
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>'Measure of a Man',
+		App\Media::create(['name'=>'Measure of a Man',
 						'credit'=>'temp',
 						'series'=>'TNG',
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>'Arsenal of Freedom',
+		App\Media::create(['name'=>'Arsenal of Freedom',
 						'credit'=>'temp',
 						'series'=>'TNG',
 						'medium'=>'Television',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>'The Cage',
+		App\Media::create(['name'=>'The Cage',
 						'credit'=>'temp',
 						'series'=>'TOS',
 						'medium'=>'Television',
@@ -117,14 +117,14 @@ class ItemsTableSeeder extends Seeder
 						'numberInSeries'=>1]);
 						
 		/* Films */
-		App\Item::create(['name'=>'First Contact',
+		App\Media::create(['name'=>'First Contact',
 						'credit'=>'temp',
 						'series'=>'TNG',
 						'medium'=>'Film',
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'numberInSeries'=>1]);
-		App\Item::create(['name'=>'The Wrath of Khan',
+		App\Media::create(['name'=>'The Wrath of Khan',
 						'credit'=>'temp',
 						'series'=>'TOS',
 						'medium'=>'Film',
