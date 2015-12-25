@@ -1,0 +1,42 @@
+body {
+	/* Background */
+	background-attachment: fixed;
+	background-position: center;
+	background-color: black;
+	
+	/* Font */
+	font-family: Verdana;
+	color:white;
+}
+
+#title {
+	text-align: center;
+	color: #ffcc33;
+}
+
+#leftButtons {
+	float: left;
+}
+
+#rightButtons {
+	float: right;
+}
+
+#timeline {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#dates {
+	text-align: center;
+}
+
+#events {
+	text-align: right;
+	width: 200px;
+}
+
+#media {
+	text-align: left;
+	width: 200px;
+}
