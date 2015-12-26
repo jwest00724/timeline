@@ -23,6 +23,8 @@ class TimelineController extends Controller
 		foreach($dates as $date) {
 			$eventsForThisDate = \App\Event::get()->where('timelineDate', $date)->toArray();
 			$mediaForThisDate = \App\Media::get()->where('timelineDate', $date)->toArray();
+			sort($eventsForThisDate);
+			sort($mediaForThisDate);
 			$media[$date] = $mediaForThisDate;
 			$events[$date] = $eventsForThisDate;
 		}
