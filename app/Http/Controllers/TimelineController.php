@@ -9,22 +9,32 @@ use App\Http\Controllers\Controller;
 
 class TimelineController extends Controller
 {
+	/* Date sorting (chronological) */
+	public function dateCompare($a, $b) {
+		return strcmp($b, $a) * -1;
+	}
 	
-	/* Display all media and events in a timeline */
+	/* Event and media sorting (alphabetical) */
+	public function itemCompare($a, $b) {
+		return strcmp($a['name'], $b['name']);
+	}
+	
+	/* Display timeline */
     public function index() {
 		
 		/* Timeline info */
 		$eventDates = \App\Event::select('timelineDate')->distinct()->get()->pluck('timelineDate')->toArray();
 		$mediaDates = \App\Media::select('timelineDate')->distinct()->get()->pluck('timelineDate')->toArray();
 		$dates = array_unique(array_merge($eventDates, $mediaDates), SORT_REGULAR);
+		usort($dates, array('\App\Http\Controllers\TimelineController', 'dateCompare'));
 		
 		$media = array();
 		$events = array();
 		foreach($dates as $date) {
 			$eventsForThisDate = \App\Event::get()->where('timelineDate', $date)->toArray();
 			$mediaForThisDate = \App\Media::get()->where('timelineDate', $date)->toArray();
-			sort($eventsForThisDate);
-			sort($mediaForThisDate);
+			usort($eventsForThisDate, array('\App\Http\Controllers\TimelineController', 'itemCompare'));
+			usort($mediaForThisDate, array('\App\Http\Controllers\TimelineController', 'itemCompare'));
 			$media[$date] = $mediaForThisDate;
 			$events[$date] = $eventsForThisDate;
 		}

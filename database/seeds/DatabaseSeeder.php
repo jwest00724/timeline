@@ -79,7 +79,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'DS9',
 						'medium'=>'Television',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2200-1-10'),
 						'collection'=>'ds9 tv series',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Amok Time',
@@ -94,7 +94,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'DS9',
 						'medium'=>'Television',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2000-1-1'),
 						'collection'=>'ds9 tv series',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Measure of a Man',
@@ -102,7 +102,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'TNG',
 						'medium'=>'Television',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2100-12-1'),
 						'collection'=>'tng tv series',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Arsenal of Freedom',
@@ -118,7 +118,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'TOS',
 						'medium'=>'Television',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2100-5-1'),
 						'collection'=>'tos tv series',
 						'numberInSeries'=>1]);
 						
@@ -128,7 +128,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'TNG',
 						'medium'=>'Film',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2100-10-1'),
 						'collection'=>'tng films',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'The Wrath of Khan',
@@ -136,7 +136,7 @@ class MediaTableSeeder extends Seeder
 						'series'=>'TOS',
 						'medium'=>'Film',
 						'summary'=>'temp',
-						'timelineDate'=>date('2100-1-1'),
+						'timelineDate'=>date('2100-1-10'),
 						'collection'=>'tos films',
 						'numberInSeries'=>1]);
 	}
