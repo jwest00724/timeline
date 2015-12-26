@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
 		DB::table('events')->delete();
 		DB::table('event_tags')->delete();
 		DB::table('event_media')->delete();
-		DB::table('abbreviations')->delete();
+		DB::table('series')->delete();
 		
 		/* Seed tables */
-		$this->call(AbbreviationsTableSeeder::class);
+		$this->call(SeriesTableSeeder::class);
 		$this->call(MediaTableSeeder::class);
 		$this->call(EventsTableSeeder::class);
 		$this->call(EventTagsTableSeeder::class);
@@ -28,15 +28,15 @@ class DatabaseSeeder extends Seeder
     }
 }
 
-class AbbreviationsTableSeeder extends Seeder
+class SeriesTableSeeder extends Seeder
 {
 	public function run()
 	{
-		App\Abbreviation::create(['seriesAbbreviation'=>'TOS', 'seriesName'=>'Star Trek: The Original Series']);
-		App\Abbreviation::create(['seriesAbbreviation'=>'TNG', 'seriesName'=>'Star Trek: The Next Generation']);
-		App\Abbreviation::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space 9']);
-		App\Abbreviation::create(['seriesAbbreviation'=>'VOY', 'seriesName'=>'Star Trek: Voyager']);
-		App\Abbreviation::create(['seriesAbbreviation'=>'ENT', 'seriesName'=>'Star Trek: Enterprise']);
+		App\Series::create(['seriesAbbreviation'=>'TOS', 'seriesName'=>'Star Trek: The Original Series']);
+		App\Series::create(['seriesAbbreviation'=>'TNG', 'seriesName'=>'Star Trek: The Next Generation']);
+		App\Series::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space 9']);
+		App\Series::create(['seriesAbbreviation'=>'VOY', 'seriesName'=>'Star Trek: Voyager']);
+		App\Series::create(['seriesAbbreviation'=>'ENT', 'seriesName'=>'Star Trek: Enterprise']);
 	}
 }
 
