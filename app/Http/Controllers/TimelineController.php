@@ -40,9 +40,11 @@ class TimelineController extends Controller
 		}
 		
 		/* Filter info */
-		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium');
-		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag');
+		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
+		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');
+		sort($mediums);
+		sort($tags);
 		
 		$seriesToCollections = array();
 		foreach($series as $thisSeries) {
