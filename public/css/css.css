@@ -29,16 +29,16 @@ body {
 	margin-left: auto;
 }
 
-#dates {
+#dateCell {
 	text-align: center;
 }
 
-#events {
+#eventCell {
 	text-align: right;
 	width: 200px;
 }
 
-#media {
+#mediaCell {
 	text-align: left;
 	width: 200px;
 }

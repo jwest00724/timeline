@@ -27,17 +27,23 @@
 	
 	<!-- Timeline display of events and media -->
 	<table id='timeline'>
-		<tr>
-			<td id='events'>
-				Events
-			</td>
-			<td id='dates'>
-				Dates
-			</td>
-			<td id='media'>
-				Media
-			</td>
-		</tr>
+		@foreach($dates as $date)
+			<tr>
+				<td id='eventCell'>
+					@foreach($events[$date] as $eventForThisDate)
+						{{ $eventForThisDate['name'] }}<br>
+					@endforeach
+				</td>
+				<td id='dateCell'>
+					{{ $date }}
+				</td>
+				<td id='mediaCell'>
+					@foreach($media[$date] as $mediaForThisDate)
+						{{ $mediaForThisDate['name'] }}<br>
+					@endforeach
+				</td>
+			</tr>
+		@endforeach
 	</table>
 	
 @endsection
