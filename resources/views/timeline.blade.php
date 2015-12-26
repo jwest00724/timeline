@@ -4,12 +4,25 @@
 	
 	<!-- Buttons to filter events -->
 	<div id='leftButtons'>
-		Event Buttons
+		Tags<br>
+		@foreach($tags as $tag)
+			{{ $tag }}<br>
+		@endforeach
 	</div>
 	
 	<!-- Buttons to filter media -->
 	<div id='rightButtons'>
-		Media Buttons
+		Series<br>
+		@foreach(array_keys($seriesToCollections) as $series)
+			{{ $series }}<br>
+			@foreach($seriesToCollections[$series] as $collection)
+				{{ $collection }}<br>
+			@endforeach
+		@endforeach
+		Mediums<br>
+		@foreach($mediums as $medium)
+			{{ $medium }}<br>
+		@endforeach
 	</div>
 	
 	<!-- Timeline display of events and media -->

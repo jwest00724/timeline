@@ -15,10 +15,12 @@ body {
 }
 
 #leftButtons {
+	text-align: left;
 	float: left;
 }
 
 #rightButtons {
+	text-align: right;
 	float: right;
 }
 

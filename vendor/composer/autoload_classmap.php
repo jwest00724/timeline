@@ -6,12 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AbbreviationsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
-    'CreateAbbreviationsTable' => $baseDir . '/database/migrations/2015_12_23_213417_create_abbreviations_table.php',
+    'CreateCollectionsTable' => $baseDir . '/database/migrations/2015_12_26_061042_create_collections_table.php',
     'CreateEventMediaTable' => $baseDir . '/database/migrations/2015_12_23_213511_create_event_media_table.php',
     'CreateEventTagsTable' => $baseDir . '/database/migrations/2015_12_23_213500_create_event_tags_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2015_12_23_213442_create_events_table.php',
     'CreateMediaTable' => $baseDir . '/database/migrations/2015_12_23_213434_create_media_table.php',
+    'CreateSeriesTable' => $baseDir . '/database/migrations/2015_12_23_213417_create_series_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'EventMediaTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'EventTagsTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
@@ -520,6 +520,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'SeriesTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );

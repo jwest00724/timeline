@@ -10,12 +10,24 @@ use App\Http\Controllers\Controller;
 class TimelineController extends Controller
 {
 	
-	// Display all media and events in a timeline
+	/* Display all media and events in a timeline */
     public function index() {
 		
-		// Get event tags
+		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium');
 		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag');
 		
-		return view('timeline')->with(['tags'=>$tags]);
+		$seriesToCollections = array();
+		$series = \App\Series::get()->pluck('seriesAbbreviation');
+		foreach($series as $thisSeries) {
+			$seriesToCollections[$thisSeries] =
+							\App\Media::select('collection')
+							->where('series', $thisSeries)
+							->distinct()
+							->get()
+							->pluck('collection')
+							->toArray();
+		}
+		
+		return view('timeline')->with(['tags'=>$tags, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums]);
 	}
 }
