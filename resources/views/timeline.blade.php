@@ -14,14 +14,14 @@
 	<div id='rightButtons'>
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
-			{{ $series }}<br>
+			<button class='filterButton'>{{ $series }}</button><br>
 			@foreach($seriesToCollections[$series] as $collection)
 				{{ $collection }}<br>
 			@endforeach
 		@endforeach
 		<p class='label'>Mediums</p>
 		@foreach($mediums as $medium)
-			{{ $medium }}<br>
+			<button class='filterButton'>{{ $medium }}</button><br>
 		@endforeach
 	</div>
 	
