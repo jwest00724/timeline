@@ -2,6 +2,25 @@
 
 @section('content')
 	
+	<script>
+		$(document).ready(function() {
+			$('.expandCollapseButton').click(function () {
+				$classes = $(this).attr('class');
+				$classes = $classes.split(" ");
+				$series = $classes[$classes.length - 1];
+				$buttonMessage = $(this).html();
+				
+				if ($buttonMessage == 'Hide Collections') {
+					$('.collectionHolder.' + $series).hide();
+					$(this).html('Show Collections');
+				} else {
+					$('.collectionHolder.' + $series).show();
+					$(this).html('Hide Collections');
+				}
+			});
+		});
+	</script>
+	
 	<!-- Buttons to filter events -->
 	<div id='leftButtons'>
 		<p class='label'>Tags</p>
@@ -15,7 +34,8 @@
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
 			<button class='filterButton'>{{ $series }}</button><br>
-			<div class='collectionHolder'>
+			<button class='expandCollapseButton {{ $series }}'>Show Collections</button><br>
+			<div class='collectionHolder {{ $series }}'>
 			@foreach($seriesToCollections[$series] as $collection)
 				<button class='compactFilterButton'>{{ $collection }}</button><br>
 			@endforeach
