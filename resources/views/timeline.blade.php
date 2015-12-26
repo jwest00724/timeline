@@ -15,9 +15,11 @@
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
 			<button class='filterButton'>{{ $series }}</button><br>
+			<div class='collectionHolder'>
 			@foreach($seriesToCollections[$series] as $collection)
-				{{ $collection }}<br>
+				<button class='compactFilterButton'>{{ $collection }}</button><br>
 			@endforeach
+			</div>
 		@endforeach
 		<p class='label'>Mediums</p>
 		@foreach($mediums as $medium)

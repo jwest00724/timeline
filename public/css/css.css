@@ -41,14 +41,27 @@ body {
 }
 
 .label {
-	margin: 5px;
+	margin: 15px 0px 0px 0px;
 }
 
 .filterButton {
 	background-color: rgba(100, 150, 255, 0.5);
+	margin: 10px 0px 0px 0px;
 	padding: 10px;
+}
+
+.compactFilterButton {
+	background-color: rgba(50, 75, 200, 0.5);
+	margin-top: -5px;
+	padding: 3px;
+}
+
+.filterButton, .compactFilterButton {
 	border: none;
 	color: white;
-	margin: 5px;
 	width: 100%;
+}
+
+.collectionHolder {
+	display: none;
 }
