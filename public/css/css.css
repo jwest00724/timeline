@@ -1,10 +1,7 @@
 body {
-	/* Background */
 	background-attachment: fixed;
 	background-position: center;
 	background-color: black;
-	
-	/* Font */
 	font-family: Verdana;
 	color:white;
 }
@@ -41,4 +38,17 @@ body {
 #mediaCell {
 	text-align: left;
 	width: 200px;
+}
+
+.label {
+	margin: 5px;
+}
+
+.filterButton {
+	background-color: rgba(100, 150, 255, 0.5);
+	padding: 10px;
+	border: none;
+	color: white;
+	margin: 5px;
+	width: 100%;
 }
