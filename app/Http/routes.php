@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('timeline');
-});
+Route::get('/', 'TimelineController@index');
 
 /*
 |--------------------------------------------------------------------------
