@@ -4,6 +4,8 @@
 	
 	<script>
 		$(document).ready(function() {
+			
+			/* Show or hide collections accordion style */
 			$('.expandCollapseButton').click(function () {
 				$classes = $(this).attr('class');
 				$classes = $classes.split(" ");
@@ -11,10 +13,10 @@
 				$buttonMessage = $(this).html();
 				
 				if ($buttonMessage == 'Hide Collections') {
-					$('.collectionHolder.' + $series).hide();
+					$('.collectionHolder.' + $series).slideUp();
 					$(this).html('Show Collections');
 				} else {
-					$('.collectionHolder.' + $series).show();
+					$('.collectionHolder.' + $series).slideDown();
 					$(this).html('Hide Collections');
 				}
 			});
