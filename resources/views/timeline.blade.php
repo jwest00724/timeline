@@ -8,6 +8,14 @@
 			/* Add or remove filters */
 			$('.filterButton, .compactFilterButton').click(function() {
 				$(this).toggleClass('selected');
+				$series = $(this).attr('data-series');
+				if ($(this).attr('data-filterType') == 'series') {
+					if ($(this).hasClass('selected')) {
+						$('.compactFilterButton[data-series="' + $series + '"]').addClass('selected');
+					} else {
+						$('.compactFilterButton[data-series="' + $series + '"]').removeClass('selected');
+					}
+				}
 			});
 			
 			/* Show or hide collections accordion style */
@@ -36,7 +44,7 @@
 	<div id='rightButtons'>
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
-			<button class='filterButton' data-filterType='series'>{{ $series }}</button><br>
+			<button class='filterButton' data-filterType='series' data-series='{{$series}}'>{{ $series }}</button><br>
 			<button class='expandCollapseButton' data-series='{{$series}}'>Show Collections</button><br>
 			<div class='collectionHolder' data-series='{{$series}}'>
 			@foreach($seriesToCollections[$series] as $collection)
