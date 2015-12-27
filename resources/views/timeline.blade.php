@@ -12,16 +12,23 @@
 			
 			/* Add or remove tag filter */
 			$('.tagButton').click(function() {
-				if ($(this).hasClass('selected')) {
-					$(this).removeClass('selected');
-				} else {
-					$(this).addClass('selected');
-				}
+				$(this).toggleClass('selected');
+			});
+			
+			/* Add or remove series filter */
+			$('.seriesButton').click(function() {
+				$(this).toggleClass('selected');
 			});
 			
 			/* Add or remove collection filter */
+			$('.collectionButton').click(function() {
+				$(this).toggleClass('selected');
+			});
 			
 			/* Add or remove medium filter */
+			$('.mediumButton').click(function() {
+				$(this).toggleClass('selected');
+			});
 			
 			/* Show or hide collections accordion style */
 			$('.expandCollapseButton').click(function () {
@@ -53,17 +60,17 @@
 	<div id='rightButtons'>
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
-			<button class='filterButton'>{{ $series }}</button><br>
+			<button class='filterButton seriesButton'>{{ $series }}</button><br>
 			<button class='expandCollapseButton {{ $series }}'>Show Collections</button><br>
 			<div class='collectionHolder {{ $series }}'>
 			@foreach($seriesToCollections[$series] as $collection)
-				<button class='compactFilterButton'>{{ $collection }}</button><br>
+				<button class='compactFilterButton collectionButton {{ $series }}'>{{ $collection }}</button><br>
 			@endforeach
 			</div>
 		@endforeach
 		<p class='label'>Mediums</p>
 		@foreach($mediums as $medium)
-			<button class='filterButton'>{{ $medium }}</button><br>
+			<button class='filterButton mediumButton'>{{ $medium }}</button><br>
 		@endforeach
 	</div>
 	
