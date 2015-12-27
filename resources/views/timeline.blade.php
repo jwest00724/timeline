@@ -5,33 +5,9 @@
 	<script>
 		$(document).ready(function() {
 			
-			/* Currently applied filters */
-			//var selectedTags = [];
-			//var selectedCollections = [];
-			//var selectedMediums = [];
-			
-			///* Add or remove tag filter */
-			//$('.tagButton').click(function() {
-			//	$(this).toggleClass('selected');
-			//});
-			//
-			///* Add or remove series filter */
-			//$('.seriesButton').click(function() {
-			//	$(this).toggleClass('selected');
-			//});
-			//
-			///* Add or remove collection filter */
-			//$('.collectionButton').click(function() {
-			//	$(this).toggleClass('selected');
-			//});
-			//
-			///* Add or remove medium filter */
-			//$('.mediumButton').click(function() {
-			//	$(this).toggleClass('selected');
-			//});
-			
+			/* Add or remove filters */
 			$('.filterButton, .compactFilterButton').click(function() {
-				
+				$(this).toggleClass('selected');
 			});
 			
 			/* Show or hide collections accordion style */
