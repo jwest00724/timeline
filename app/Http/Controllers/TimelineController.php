@@ -46,6 +46,17 @@ class TimelineController extends Controller
 		sort($mediums);
 		sort($tags);
 		
+		$eventIDToTags = array();
+		$eventIDs = \App\Event::get()->pluck('id');
+		foreach($eventIDs as $eventID) {
+			$eventIDToTags[$eventID] =
+							\App\EventTag::select('tag')
+							->where('eventID', $eventID)
+							->get()
+							->pluck('tag')
+							->toArray();
+		}
+		
 		$seriesToCollections = array();
 		foreach($series as $thisSeries) {
 			$seriesToCollections[$thisSeries] =
@@ -57,6 +68,6 @@ class TimelineController extends Controller
 							->toArray();
 		}
 		
-		return view('timeline')->with(['tags'=>$tags, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
+		return view('timeline')->with(['tags'=>$tags, 'eventIDToTags'=>$eventIDToTags, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
 	}
 }
