@@ -16,6 +16,19 @@
 						$('.compactFilterButton[data-series="' + $series + '"]').removeClass('selected');
 					}
 				}
+				if ($(this).attr('data-filterType') == 'collection') {
+					var anyCollectionHighlighted = false;
+					$('.compactFilterButton[data-series="' + $series + '"]').each(function() {
+						if ($(this).hasClass('selected')) {
+							anyCollectionHighlighted = true;
+							return;
+						}
+					});
+					if (!anyCollectionHighlighted)
+						$('.filterButton[data-series="' + $series + '"]').removeClass('selected');
+					else
+						$('.filterButton[data-series="' + $series + '"]').addClass('selected');
+				}
 			});
 			
 			/* Show or hide collections accordion style */
