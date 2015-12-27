@@ -10,38 +10,38 @@
 			//var selectedCollections = [];
 			//var selectedMediums = [];
 			
-			/* Add or remove tag filter */
-			$('.tagButton').click(function() {
-				$(this).toggleClass('selected');
-			});
+			///* Add or remove tag filter */
+			//$('.tagButton').click(function() {
+			//	$(this).toggleClass('selected');
+			//});
+			//
+			///* Add or remove series filter */
+			//$('.seriesButton').click(function() {
+			//	$(this).toggleClass('selected');
+			//});
+			//
+			///* Add or remove collection filter */
+			//$('.collectionButton').click(function() {
+			//	$(this).toggleClass('selected');
+			//});
+			//
+			///* Add or remove medium filter */
+			//$('.mediumButton').click(function() {
+			//	$(this).toggleClass('selected');
+			//});
 			
-			/* Add or remove series filter */
-			$('.seriesButton').click(function() {
-				$(this).toggleClass('selected');
-			});
-			
-			/* Add or remove collection filter */
-			$('.collectionButton').click(function() {
-				$(this).toggleClass('selected');
-			});
-			
-			/* Add or remove medium filter */
-			$('.mediumButton').click(function() {
-				$(this).toggleClass('selected');
+			$('.filterButton, .compactFilterButton').click(function() {
+				
 			});
 			
 			/* Show or hide collections accordion style */
 			$('.expandCollapseButton').click(function () {
-				$classes = $(this).attr('class');
-				$classes = $classes.split(" ");
-				$series = $classes[$classes.length - 1];
-				$buttonMessage = $(this).html();
-				
-				if ($buttonMessage == 'Hide Collections') {
-					$('.collectionHolder.' + $series).slideUp();
+				$series = $(this).attr('data-series');
+				if ($(this).html() == 'Hide Collections') {
+					$('.collectionHolder[data-series="' + $series + '"]').slideUp();
 					$(this).html('Show Collections');
 				} else {
-					$('.collectionHolder.' + $series).slideDown();
+					$('.collectionHolder[data-series="' + $series + '"]').slideDown();
 					$(this).html('Hide Collections');
 				}
 			});
@@ -52,7 +52,7 @@
 	<div id='leftButtons'>
 		<p class='label'>Tags</p>
 		@foreach($tags as $tag)
-			<button class='filterButton tagButton'>{{ $tag }}</button><br>
+			<button class='filterButton' data-filterType='tag'>{{ $tag }}</button><br>
 		@endforeach
 	</div>
 	
@@ -60,17 +60,17 @@
 	<div id='rightButtons'>
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
-			<button class='filterButton seriesButton'>{{ $series }}</button><br>
-			<button class='expandCollapseButton {{ $series }}'>Show Collections</button><br>
-			<div class='collectionHolder {{ $series }}'>
+			<button class='filterButton' data-filterType='series'>{{ $series }}</button><br>
+			<button class='expandCollapseButton' data-series='{{$series}}'>Show Collections</button><br>
+			<div class='collectionHolder' data-series='{{$series}}'>
 			@foreach($seriesToCollections[$series] as $collection)
-				<button class='compactFilterButton collectionButton {{ $series }}'>{{ $collection }}</button><br>
+				<button class='compactFilterButton' data-filterType='collection' data-series='{{$series}}'>{{ $collection }}</button><br>
 			@endforeach
 			</div>
 		@endforeach
 		<p class='label'>Mediums</p>
 		@foreach($mediums as $medium)
-			<button class='filterButton mediumButton'>{{ $medium }}</button><br>
+			<button class='filterButton' data-filterType='medium'>{{ $medium }}</button><br>
 		@endforeach
 	</div>
 	
