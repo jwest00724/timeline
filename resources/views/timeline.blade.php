@@ -2,15 +2,6 @@
 
 @section('content')
 	
-	<?php
-		$filteredTags = $tags;
-		$filteredSeriesToCollections = $seriesToCollections;
-		$filteredMediums = $mediums;
-		$filteredDates = $dates;
-		$filteredEvents = $events;
-		$filteredMedia = $media;
-	?>
-	
 	<script>
 		$(document).ready(function() {
 			
@@ -82,10 +73,10 @@
 	
 	<!-- Timeline display of events and media -->
 	<table id='timeline'>
-		@foreach($filteredDates as $date)
+		@foreach($dates as $date)
 			<tr>
 				<td id='eventCell'>
-					@foreach($filteredEvents[$date] as $eventForThisDate)
+					@foreach($events[$date] as $eventForThisDate)
 						{{ $eventForThisDate['name'] }}<br>
 					@endforeach
 				</td>
@@ -93,7 +84,7 @@
 					{{ $date }}
 				</td>
 				<td id='mediaCell'>
-					@foreach($filteredMedia[$date] as $mediaForThisDate)
+					@foreach($media[$date] as $mediaForThisDate)
 						{{ $mediaForThisDate['name'] }}<br>
 					@endforeach
 				</td>
