@@ -5,6 +5,24 @@
 	<script>
 		$(document).ready(function() {
 			
+			/* Currently applied filters */
+			//var selectedTags = [];
+			//var selectedCollections = [];
+			//var selectedMediums = [];
+			
+			/* Add or remove tag filter */
+			$('.tagButton').click(function() {
+				if ($(this).hasClass('selected')) {
+					$(this).removeClass('selected');
+				} else {
+					$(this).addClass('selected');
+				}
+			});
+			
+			/* Add or remove collection filter */
+			
+			/* Add or remove medium filter */
+			
 			/* Show or hide collections accordion style */
 			$('.expandCollapseButton').click(function () {
 				$classes = $(this).attr('class');
@@ -27,7 +45,7 @@
 	<div id='leftButtons'>
 		<p class='label'>Tags</p>
 		@foreach($tags as $tag)
-			<button class='filterButton'>{{ $tag }}</button><br>
+			<button class='filterButton tagButton'>{{ $tag }}</button><br>
 		@endforeach
 	</div>
 	

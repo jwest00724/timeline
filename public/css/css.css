@@ -71,3 +71,8 @@ body {
 .collectionHolder {
 	display: none;
 }
+
+.selected {
+	background-color: yellow;
+	color: black;
+}
