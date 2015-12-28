@@ -4,14 +4,23 @@
 	
 	<script>
 	
-		/* Filtered data (initialize to all data) */
-		var filteredDates = <?php echo json_encode($dates) ?>;
-		var filteredEvents = <?php echo json_encode($events) ?>;
-		var filteredMedia = <?php echo json_encode($media) ?>;
+		/* Filtered data */
+		var filteredDates; 
+		var filteredEvents;
+		var filteredMedia;
+		
+		/* Remove all filters from data */
+		function resetData() {
+			filteredDates = <?php echo json_encode($dates) ?>;
+			filteredEvents = <?php echo json_encode($events) ?>;
+			filteredMedia = <?php echo json_encode($media) ?>;
+		}
 	
 		/* Apply filters to data */
 		function applySelectedFilters() {
-			filteredMedia[filteredDates[0]][0]['name'] = "new name";
+			
+			
+			
 			drawTimeline();
 		}
 		
@@ -107,6 +116,7 @@
 	<!-- Timeline display of events and media -->
 	<table id='timeline'>
 		<script>
+			resetData();
 			drawTimeline();
 		</script>
 	</table>
