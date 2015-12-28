@@ -3,9 +3,15 @@
 @section('content')
 	
 	<script>
+	
+		/* Filtered data (initialize to all data) */
+		var filteredDates = <?php echo json_encode($dates) ?>;
+		var filteredEvents = <?php echo json_encode($events) ?>;
+		var filteredMedia = <?php echo json_encode($media) ?>;
+	
 		$(document).ready(function() {
 			
-			/* Add or remove filters */
+			/* Add or remove button highlighting */
 			$('.filterButton, .compactFilterButton').click(function() {
 				$(this).toggleClass('selected');
 				$series = $(this).attr('data-series');
@@ -73,23 +79,22 @@
 	
 	<!-- Timeline display of events and media -->
 	<table id='timeline'>
-		@foreach($dates as $date)
-			<tr>
-				<td id='eventCell'>
-					@foreach($events[$date] as $eventForThisDate)
-						{{ $eventForThisDate['name'] }}<br>
-					@endforeach
-				</td>
-				<td id='dateCell'>
-					{{ $date }}
-				</td>
-				<td id='mediaCell'>
-					@foreach($media[$date] as $mediaForThisDate)
-						{{ $mediaForThisDate['name'] }}<br>
-					@endforeach
-				</td>
-			</tr>
-		@endforeach
+		<script>
+			for (var dateIndex=0; dateIndex<filteredDates.length; dateIndex++) {
+				document.write('<tr><td id="eventCell">');
+				for (var eventIndex = 0; eventIndex < filteredEvents[filteredDates[dateIndex]].length; eventIndex++) {
+					document.write(filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '<br>');
+				}
+				document.write('</td><td id="dateCell">' + filteredDates[dateIndex] + '</td>');
+				document.write('<td id="mediaCell">');
+				
+				for (var mediaIndex = 0; mediaIndex < filteredMedia[filteredDates[dateIndex]].length; mediaIndex++) {
+					document.write(filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '<br>');
+				}
+				
+				document.write('</td></tr>');
+			}
+		</script>
 	</table>
 	
 @endsection
