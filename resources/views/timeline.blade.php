@@ -20,14 +20,19 @@
 	
 		/* Apply filters to data */
 		function applySelectedFilters() {
-			var selectedTags = new Array();
+			var selectedTags = document.querySelectorAll('.selected[data-filterType="tag"]');
 			var newDates = new Array();
 			var newEvents = new Array();
 			var newMedia = new Array();
 			resetData();
 			
+			/* Don't apply filters if none are selected */
+			if (Object.keys(selectedTags).length == 0) {
+				drawTimeline();
+				return;
+			}
+			
 			/* Only add events with appropriate tags */
-			selectedTags = document.querySelectorAll('.selected[data-filterType="tag"]');
 			for (var date = 0; date < Object.keys(filteredDates).length; date++) {
 				newEvents[filteredDates[date]] = new Array();
 				for (var event = 0; event < Object.keys(filteredEvents[filteredDates[date]]).length; event++) {
