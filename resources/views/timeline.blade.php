@@ -20,8 +20,33 @@
 	
 		/* Apply filters to data */
 		function applySelectedFilters() {
-			resetDate();
-			// Filter data
+			var selectedTags = new Array();
+			var newDates = new Array();
+			var newEvents = new Array();
+			var newMedia = new Array();
+			resetData();
+			
+			/* Only add events with appropriate tags */
+			selectedTags = document.querySelectorAll('.selected[data-filterType="tag"]');
+			for (var date = 0; date < Object.keys(filteredDates).length; date++) {
+				newEvents[filteredDates[date]] = new Array();
+				for (var event = 0; event < Object.keys(filteredEvents[filteredDates[date]]).length; event++) {
+					for (var selectedTag = 0, match = false; selectedTag < Object.keys(selectedTags).length; selectedTag++) {
+						for (var eventTag = 0; eventTag < Object.keys(eventIDToTags[filteredEvents[filteredDates[date]][event]['id']]).length; eventTag++) {
+							if (selectedTags[selectedTag].innerHTML == eventIDToTags[filteredEvents[filteredDates[date]][event]['id']][eventTag]) {
+								// add to new events
+								//newEvents[filteredDates[date]].push(filteredEvents[filteredDates[date]][event]);
+								newEvents[filteredDates[date]].push(filteredEvents[filteredDates[date]][event]);
+								match = true;
+								break;
+							}
+						}
+						if (match) break;
+					}
+				}
+			}
+			
+			filteredEvents = newEvents;
 			drawTimeline();
 		}
 		
