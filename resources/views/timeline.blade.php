@@ -9,6 +9,32 @@
 		var filteredEvents = <?php echo json_encode($events) ?>;
 		var filteredMedia = <?php echo json_encode($media) ?>;
 	
+		/* Apply filters to data */
+		function applySelectedFilters() {
+			filteredMedia[filteredDates[0]][0]['name'] = "new name";
+			drawTimeline();
+		}
+		
+		/* Display timeline using current filters */
+		function drawTimeline() {
+			var newHTML = "";
+			for (var dateIndex=0; dateIndex<filteredDates.length; dateIndex++) {
+				newHTML = newHTML + '<tr><td id="eventCell">';
+				for (var eventIndex = 0; eventIndex < filteredEvents[filteredDates[dateIndex]].length; eventIndex++) {
+					newHTML = newHTML + filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '<br>';
+				}
+				newHTML = newHTML + '</td><td id="dateCell">' + filteredDates[dateIndex] + '</td>';
+				newHTML = newHTML + '<td id="mediaCell">';
+				
+				for (var mediaIndex = 0; mediaIndex < filteredMedia[filteredDates[dateIndex]].length; mediaIndex++) {
+					newHTML = newHTML + filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '<br>';
+				}
+				
+				newHTML = newHTML + '</td></tr>';
+			}
+			document.getElementById('timeline').innerHTML = newHTML;
+		}
+		
 		$(document).ready(function() {
 			
 			/* Add or remove button highlighting */
@@ -35,6 +61,7 @@
 					else
 						$('.filterButton[data-series="' + $series + '"]').addClass('selected');
 				}
+				applySelectedFilters();
 			});
 			
 			/* Show or hide collections accordion style */
@@ -80,20 +107,7 @@
 	<!-- Timeline display of events and media -->
 	<table id='timeline'>
 		<script>
-			for (var dateIndex=0; dateIndex<filteredDates.length; dateIndex++) {
-				document.write('<tr><td id="eventCell">');
-				for (var eventIndex = 0; eventIndex < filteredEvents[filteredDates[dateIndex]].length; eventIndex++) {
-					document.write(filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '<br>');
-				}
-				document.write('</td><td id="dateCell">' + filteredDates[dateIndex] + '</td>');
-				document.write('<td id="mediaCell">');
-				
-				for (var mediaIndex = 0; mediaIndex < filteredMedia[filteredDates[dateIndex]].length; mediaIndex++) {
-					document.write(filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '<br>');
-				}
-				
-				document.write('</td></tr>');
-			}
+			drawTimeline();
 		</script>
 	</table>
 	
