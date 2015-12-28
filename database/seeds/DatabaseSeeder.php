@@ -83,7 +83,8 @@ class MediaTableSeeder extends Seeder
 						'collection'=>'ds9 tv series',
 						'numberInSeries'=>1]);
 		App\Media::create(['name'=>'Amok Time',
-						'credit'=>'TOS',
+						'credit'=>'temp',
+						'series'=>'TOS',
 						'medium'=>'Television',
 						'summary'=>'temp', 
 						'timelineDate'=>date('2100-1-1'),

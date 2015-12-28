@@ -5,13 +5,15 @@
 	<script>
 	
 		/* Filtered data */
-		var eventIDToTags
+		var seriesToCollections;
+		var eventIDToTags;
 		var filteredDates; 
 		var filteredEvents;
 		var filteredMedia;
 		
 		/* Remove all filters from data */
 		function resetData() {
+			seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
 			eventIDToTags = <?php echo json_encode($eventIDToTags) ?>;
 			filteredDates = <?php echo json_encode($dates) ?>;
 			filteredEvents = <?php echo json_encode($events) ?>;
@@ -20,6 +22,9 @@
 	
 		/* Apply filters to data */
 		function applySelectedFilters() {
+			var selectedCollections = document.querySelectorAll('.selected[data-filterType="collection"]');
+			var selectedMediums = document.querySelectorAll('.selected[data-filterType="medium"]');
+			var selectedSeries = document.querySelectorAll('.selected[data-filterType="series"]');
 			var selectedTags = document.querySelectorAll('.selected[data-filterType="tag"]');
 			var newDates = new Array();
 			var newEvents = new Array();
@@ -39,8 +44,6 @@
 					for (var selectedTag = 0, match = false; selectedTag < Object.keys(selectedTags).length; selectedTag++) {
 						for (var eventTag = 0; eventTag < Object.keys(eventIDToTags[filteredEvents[filteredDates[date]][event]['id']]).length; eventTag++) {
 							if (selectedTags[selectedTag].innerHTML == eventIDToTags[filteredEvents[filteredDates[date]][event]['id']][eventTag]) {
-								// add to new events
-								//newEvents[filteredDates[date]].push(filteredEvents[filteredDates[date]][event]);
 								newEvents[filteredDates[date]].push(filteredEvents[filteredDates[date]][event]);
 								match = true;
 								break;
@@ -51,7 +54,31 @@
 				}
 			}
 			
+			/* Only add media with appropriate medium and collection */
+			for (var date = 0; date < Object.keys(filteredDates).length; date++) {
+				newMedia[filteredDates[date]] = new Array();
+				for (var media = 0; media < Object.keys(filteredMedia[filteredDates[date]]).length; media++) {
+					for (var selectedMedium = 0, match = false; selectedMedium < Object.keys(selectedMediums).length; selectedMedium++) {
+						for (var aSelectedSeries = 0; aSelectedSeries < Object.keys(selectedSeries).length; aSelectedSeries++) {
+							for (var selectedCollection = 0; selectedCollection < Object.keys(selectedCollections).length; selectedCollection++) {
+								if (selectedCollections[selectedCollection].getAttribute('data-series') == selectedSeries[aSelectedSeries].innerHTML &&
+								filteredMedia[filteredDates[date]][media]['collection'] == selectedCollections[selectedCollection].innerHTML &&
+								filteredMedia[filteredDates[date]][media]['series'] == selectedSeries[aSelectedSeries].innerHTML &&
+								filteredMedia[filteredDates[date]][media]['medium'] == selectedMediums[selectedMedium].innerHTML) {
+									newMedia[filteredDates[date]].push(filteredMedia[filteredDates[date]][media]);
+									match = true;
+									break;
+								}
+							}
+							if (match) break;
+						}
+						if (match) break;
+					}
+				}
+			}
+			
 			filteredEvents = newEvents;
+			filteredMedia = newMedia;
 			drawTimeline();
 		}
 		
