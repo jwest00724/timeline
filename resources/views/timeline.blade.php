@@ -5,12 +5,14 @@
 	<script>
 	
 		/* Filtered data */
+		var eventIDToTags
 		var filteredDates; 
 		var filteredEvents;
 		var filteredMedia;
 		
 		/* Remove all filters from data */
 		function resetData() {
+			eventIDToTags = <?php echo json_encode($eventIDToTags) ?>;
 			filteredDates = <?php echo json_encode($dates) ?>;
 			filteredEvents = <?php echo json_encode($events) ?>;
 			filteredMedia = <?php echo json_encode($media) ?>;
@@ -18,9 +20,8 @@
 	
 		/* Apply filters to data */
 		function applySelectedFilters() {
-			
-			
-			
+			resetDate();
+			// Filter data
 			drawTimeline();
 		}
 		
