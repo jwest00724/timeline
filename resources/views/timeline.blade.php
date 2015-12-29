@@ -5,6 +5,7 @@
 	<script>
 	
 		/* Filtered data */
+		var eventMediaPairs;
 		var seriesToCollections;
 		var eventIDToTags;
 		var filteredDates; 
@@ -14,6 +15,7 @@
 		/* Remove all filters from data */
 		function resetData() {
 			seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
+			eventMediaPairs = <?php echo json_encode($eventMediaPairs) ?>;
 			eventIDToTags = <?php echo json_encode($eventIDToTags) ?>;
 			filteredDates = <?php echo json_encode($dates) ?>;
 			filteredEvents = <?php echo json_encode($events) ?>;
@@ -69,6 +71,30 @@
 					}
 				}
 			}
+			
+			/* Remove events that aren't related to new media */
+			for (var eventDate = 0; eventDate < Object.keys(filteredDates).length; eventDate++) {
+				for (var event = Object.keys(newEvents[filteredDates[eventDate]]).length - 1; event >=0 ; event--) {
+					var connection = false;
+					for (var mediaDate = 0; mediaDate < Object.keys(filteredDates).length; mediaDate++) {
+						for (var media = 0; media < Object.keys(newMedia[filteredDates[mediaDate]]).length; media++) {
+							var eventID = newEvents[filteredDates[eventDate]][event]['id'];
+							var mediaID = newMedia[filteredDates[mediaDate]][media]['id'];
+							for (var pair = 0; pair < Object.keys(eventMediaPairs).length; pair++) {
+								if (eventMediaPairs[pair]['eventID'] == eventID &&
+									eventMediaPairs[pair]['mediaID'] == mediaID) {
+									connection = true;
+								}
+							}
+						}
+					}
+					if (connection == false) {
+						newEvents[filteredDates[eventDate]].splice(event, 1);
+					}
+				}
+			}
+			
+			/* Remove events that aren't connected to filtered media */
 			
 			filteredEvents = newEvents;
 			filteredMedia = newMedia;

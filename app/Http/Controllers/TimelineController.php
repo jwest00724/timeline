@@ -68,6 +68,9 @@ class TimelineController extends Controller
 							->toArray();
 		}
 		
-		return view('timeline')->with(['tags'=>$tags, 'eventIDToTags'=>$eventIDToTags, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
+		/* Event-media connection info */
+		$eventMediaPairs = \App\EventMedia::get(array('eventID', 'mediaID'))->toArray();
+				
+		return view('timeline')->with(['tags'=>$tags, 'eventIDToTags'=>$eventIDToTags, 'eventMediaPairs'=>$eventMediaPairs, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
 	}
 }
