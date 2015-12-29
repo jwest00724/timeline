@@ -1,0 +1,23 @@
+.formHolder {
+	margin-right: auto;
+	margin-left: auto;
+	width: 300px;
+}
+
+.label {
+	margin: 30px 0px 5px 0px;
+}
+
+.input {
+	width: 100%;
+}
+
+.text-area {
+	resize: none;
+	height: 150px;
+}
+
+.formButton {
+	margin-top: 40px;
+	width: 100%;
+}

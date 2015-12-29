@@ -1,5 +1,7 @@
 @extends('master')
 
 @section('content')
-@yield('formContent')
+	<div class='formHolder'>
+		@yield('formContent')
+	</div>
 @endsection
