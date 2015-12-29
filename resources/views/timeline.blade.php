@@ -80,6 +80,10 @@
 		function drawTimeline() {
 			var newHTML = "";
 			for (var dateIndex=0; dateIndex<filteredDates.length; dateIndex++) {
+				if (filteredEvents[filteredDates[dateIndex]].length == 0 &&
+					filteredMedia[filteredDates[dateIndex]].length == 0) {
+					continue;
+				}
 				newHTML = newHTML + '<tr><td id="eventCell">';
 				for (var eventIndex = 0; eventIndex < filteredEvents[filteredDates[dateIndex]].length; eventIndex++) {
 					newHTML = newHTML + filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '<br>';
@@ -90,7 +94,6 @@
 				for (var mediaIndex = 0; mediaIndex < filteredMedia[filteredDates[dateIndex]].length; mediaIndex++) {
 					newHTML = newHTML + filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '<br>';
 				}
-				
 				newHTML = newHTML + '</td></tr>';
 			}
 			document.getElementById('timeline').innerHTML = newHTML;
