@@ -26,7 +26,6 @@
 			var selectedMediums = document.querySelectorAll('.selected[data-filterType="medium"]');
 			var selectedSeries = document.querySelectorAll('.selected[data-filterType="series"]');
 			var selectedTags = document.querySelectorAll('.selected[data-filterType="tag"]');
-			var newDates = new Array();
 			var newEvents = new Array();
 			var newMedia = new Array();
 			resetData();
