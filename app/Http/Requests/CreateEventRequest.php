@@ -24,7 +24,9 @@ class CreateEventRequest extends Request
     public function rules()
     {
         return [
-            // Validation rules here
+            'name' => 'required',
+			'summary' => 'required',
+			'timelineDate' => 'required'
         ];
     }
 }
