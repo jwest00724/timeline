@@ -74,7 +74,7 @@
 			
 			/* Remove events that aren't related to new media */
 			for (var eventDate = 0; eventDate < Object.keys(filteredDates).length; eventDate++) {
-				for (var event = Object.keys(newEvents[filteredDates[eventDate]]).length - 1; event >=0 ; event--) {
+				for (var event = Object.keys(newEvents[filteredDates[eventDate]]).length - 1; event >= 0 ; event--) {
 					var connection = false;
 					for (var mediaDate = 0; mediaDate < Object.keys(filteredDates).length; mediaDate++) {
 						for (var media = 0; media < Object.keys(newMedia[filteredDates[mediaDate]]).length; media++) {
@@ -94,7 +94,27 @@
 				}
 			}
 			
-			/* Remove events that aren't connected to filtered media */
+			/* Remove events that aren't related to new media */
+			for (var mediaDate = 0; mediaDate < Object.keys(filteredDates).length; mediaDate++) {
+				for (var media = Object.keys(newMedia[filteredDates[mediaDate]]).length - 1; media >= 0; media--) {
+					var connection = false;
+					for (var eventDate = 0; eventDate < Object.keys(filteredDates).length; eventDate++) {
+						for (var event = 0; event < Object.keys(newEvents[filteredDates[eventDate]]).length; event++) {
+							var eventID = newEvents[filteredDates[eventDate]][event]['id'];
+							var mediaID = newMedia[filteredDates[mediaDate]][media]['id'];
+							for (var pair = 0; pair < Object.keys(eventMediaPairs).length; pair++) {
+								if (eventMediaPairs[pair]['eventID'] == eventID &&
+									eventMediaPairs[pair]['mediaID'] == mediaID) {
+									connection = true;
+								}
+							}
+						}
+					}
+					if (connection == false) {
+						newMedia[filteredDates[mediaDate]].splice(media, 1);
+					}
+				}
+			}
 			
 			filteredEvents = newEvents;
 			filteredMedia = newMedia;
@@ -197,6 +217,7 @@
 	<table id='timeline'>
 		<script>
 			resetData();
+			applySelectedFilters();
 			drawTimeline();
 		</script>
 	</table>
