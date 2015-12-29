@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'TimelineController@index');
+//
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +25,9 @@ Route::get('/', 'TimelineController@index');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+	
+    Route::get('/', 'TimelineController@index');
+	Route::get('/newEvent', function() { return view('forms/newEvent'); });
+	Route::post('/newEvent', 'EventController@create');
+	
 });
