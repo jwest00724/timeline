@@ -31,12 +31,6 @@
 			var newMedia = new Array();
 			resetData();
 			
-			/* Don't apply filters if none are selected */
-			if (Object.keys(selectedTags).length == 0) {
-				drawTimeline();
-				return;
-			}
-			
 			/* Only add events with appropriate tags */
 			for (var date = 0; date < Object.keys(filteredDates).length; date++) {
 				newEvents[filteredDates[date]] = new Array();
@@ -149,7 +143,7 @@
 	<div id='leftButtons'>
 		<p class='label'>Tags</p>
 		@foreach($tags as $tag)
-			<button class='filterButton' data-filterType='tag'>{{ $tag }}</button><br>
+			<button class='filterButton selected' data-filterType='tag'>{{ $tag }}</button><br>
 		@endforeach
 	</div>
 	
@@ -157,17 +151,17 @@
 	<div id='rightButtons'>
 		<p class='label'>Series</p>
 		@foreach(array_keys($seriesToCollections) as $series)
-			<button class='filterButton' data-filterType='series' data-series='{{$series}}'>{{ $series }}</button><br>
+			<button class='filterButton selected' data-filterType='series' data-series='{{$series}}'>{{ $series }}</button><br>
 			<button class='expandCollapseButton' data-series='{{$series}}'>Show Collections</button><br>
 			<div class='collectionHolder' data-series='{{$series}}'>
 			@foreach($seriesToCollections[$series] as $collection)
-				<button class='compactFilterButton' data-filterType='collection' data-series='{{$series}}'>{{ $collection }}</button><br>
+				<button class='compactFilterButton selected' data-filterType='collection' data-series='{{$series}}'>{{ $collection }}</button><br>
 			@endforeach
 			</div>
 		@endforeach
 		<p class='label'>Mediums</p>
 		@foreach($mediums as $medium)
-			<button class='filterButton' data-filterType='medium'>{{ $medium }}</button><br>
+			<button class='filterButton selected' data-filterType='medium'>{{ $medium }}</button><br>
 		@endforeach
 	</div>
 	
