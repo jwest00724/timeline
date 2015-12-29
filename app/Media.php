@@ -14,7 +14,7 @@ class Media extends Model
     protected $fillable = [
         'name', 'series', 'medium',
 		'summary', 'timelineDate',
-		'numberInSeries', 'credit',
+		'numberInCollection', 'credit',
 		'collection',
     ];
 }

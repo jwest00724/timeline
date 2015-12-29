@@ -29,5 +29,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'TimelineController@index');
 	Route::get('/newEvent', function() { return view('forms/newEvent'); });
 	Route::post('/newEvent', 'EventController@create');
-	
+	Route::get('/newMedia', function() { return view('forms/newMedia'); });
+	Route::post('/newMedia', 'MediaController@create');
 });

@@ -81,7 +81,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2200-1-10'),
 						'collection'=>'ds9 tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>'Amok Time',
 						'credit'=>'temp',
 						'series'=>'TOS',
@@ -89,7 +89,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp', 
 						'timelineDate'=>date('2100-1-1'),
 						'collection'=>'tos tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>"It's Only a Paper Moon",
 						'credit'=>'temp',
 						'series'=>'DS9',
@@ -97,7 +97,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2000-1-1'),
 						'collection'=>'ds9 tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>'Measure of a Man',
 						'credit'=>'temp',
 						'series'=>'TNG',
@@ -105,7 +105,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-12-1'),
 						'collection'=>'tng tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>'Arsenal of Freedom',
 						'credit'=>'temp',
 						'series'=>'TNG',
@@ -113,7 +113,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-1'),
 						'collection'=>'tng tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>'The Cage',
 						'credit'=>'temp',
 						'series'=>'TOS',
@@ -121,7 +121,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-5-1'),
 						'collection'=>'tos tv series',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 						
 		/* Films */
 		App\Media::create(['name'=>'First Contact',
@@ -131,7 +131,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-10-1'),
 						'collection'=>'tng films',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 		App\Media::create(['name'=>'The Wrath of Khan',
 						'credit'=>'temp',
 						'series'=>'TOS',
@@ -139,6 +139,6 @@ class MediaTableSeeder extends Seeder
 						'summary'=>'temp',
 						'timelineDate'=>date('2100-1-10'),
 						'collection'=>'tos films',
-						'numberInSeries'=>1]);
+						'numberInCollection'=>1]);
 	}
 }
