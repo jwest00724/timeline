@@ -29,7 +29,31 @@ class MediaController extends Controller
 	
     public function create(Requests\CreateMediaRequest $request) {
 		
-		dd($request);
+		$data = $request->all();
+		
+		if ($data['series'] == 'newSeries') {
+			$data['series'] = $data['newSeriesAbbr'];
+			\App\Series::create(['seriesName'=>$data['newSeriesName'], 'seriesAbbreviation'=>$data['newSeriesAbbr']]);
+		}
+		
+		if ($data['collection'] == 'newCollection') {
+			$data['collection'] = $data['newCollectionName'];
+		}
+		
+		if ($data['medium'] == 'newMedium') {
+			$data['medium'] = $data['newMediumName'];
+		}
+		
+		unset($data['_token']);
+		unset($data['newSeriesAbbr']);
+		unset($data['newSeriesName']);
+		unset($data['newCollectionName']);
+		unset($data['newMediumName']);
+		if ($data['numberInCollection'] == '') unset($data['numberInCollection']);
+		if ($data['credit'] == '') unset($data['credit']);
+		if ($data['summary'] == '') unset($data['summary']);
+		
+		\App\Media::create($data);
 		
 		return redirect('/');
 	}

@@ -19,7 +19,7 @@
 					$('#hiddenSeries').slideUp();
 				}
 				
-				var collectionHTML = "<option disabled selected> --- Select a collection --- </option>";
+				var collectionHTML = "<option value='' selected> --- Select a collection --- </option>";
 				if (selectedAbbr != 'newSeries') {
 					var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
 					var collections = seriesToCollections[selectedAbbr];
@@ -75,8 +75,8 @@
 		
 		<!-- Series -->
 		<div class='label required'>Series</div>
-		<select class='input' id='seriesDropdown'>
-			<option disabled selected> --- Select a series --- </option>
+		<select class='input' name='series' id='seriesDropdown'>
+			<option value='' selected> --- Select a series --- </option>
 			@foreach($series as $aSeries)
 				<option name='series' value='{{ $aSeries }}'>{{ $seriesAbbrToName[$aSeries] }}</option>
 			@endforeach
@@ -92,8 +92,8 @@
 		
 		<!-- Collection -->
 		<div class='label required'>Collection</div>
-		<select class='input' id='collectionDropdown'>
-			<option disabled selected> --- Select a series to see collections --- </option>
+		<select class='input' name='collection' id='collectionDropdown'>
+			<option value='' selected> --- Select a series to see collections --- </option>
 		</select>
 		
 		<div class='hidden' id='hiddenCollection'>
@@ -103,13 +103,13 @@
 		
 		<div class='hidden' id='hiddenNumber'>
 			<div class='label'>Number in Collection</div>
-			<input name="numberInCollection" class='input' type="number">
+			<input name="numberInCollection" class='input' type="number" min='1'>
 		</div>
 		
 		<!-- Medium -->
 		<div class='label required'>Medium</div>
-		<select class='input' id='mediumDropdown'>
-			<option disabled selected> --- Select a medium --- </option>
+		<select class='input' name='medium' id='mediumDropdown'>
+			<option value='' selected> --- Select a medium --- </option>
 			@foreach($mediums as $medium)
 				<option name='medium' value='{{ $medium }}'>{{ $medium }}</option>
 			@endforeach

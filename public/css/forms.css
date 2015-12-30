@@ -46,6 +46,15 @@
 	color: red;
 }
 
+#tagSearch {
+	width: 80%;
+}
+
+#addTagButton {
+	margin-right: -10px;
+	width: 18%;
+}
+
 ul {
 	list-style-type: square;
 	text-align: left;

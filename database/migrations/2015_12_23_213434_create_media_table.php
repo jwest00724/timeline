@@ -15,13 +15,13 @@ class CreateMediaTable extends Migration
         Schema::create('media', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-			$table->string('credit');
+			$table->string('credit')->nullable();
 			$table->string('series');
 			$table->string('medium');
-			$table->string('summary');
+			$table->string('summary')->nullable();
 			$table->date('timelineDate');
 			$table->string('collection');
-			$table->integer('numberInCollection');
+			$table->integer('numberInCollection')->nullable();
 			$table->timestamps();
 		});
     }
