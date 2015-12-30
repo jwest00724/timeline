@@ -1,13 +1,13 @@
 @extends('forms/master')
 
 @section('formContent')
-	
+
 	<!-- New event form -->
 	<form role="form" method="POST" action="{{ url('/newMedia') }}">
 		{!! csrf_field() !!}
 		<div class='label'>Name</div>
 		<input name="name" class='input' type="text">
-		<div class='label'>Credit</div>
+		<div class='label'>Credit (Author/Director/Developer)</div>
 		<input name="credit" class='input' type="text">
 		<div class='label'>Series</div>
 		<input name="series" class='input' type="text">
