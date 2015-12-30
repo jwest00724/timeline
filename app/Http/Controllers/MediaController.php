@@ -28,6 +28,9 @@ class MediaController extends Controller
 	}
 	
     public function create(Requests\CreateMediaRequest $request) {
+		
+		dd($request);
+		
 		return redirect('/');
 	}
 }
