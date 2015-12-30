@@ -5,11 +5,11 @@
 	<!-- New event form -->
 	<form role="form" method="POST" action="{{ url('/newEvent') }}">
 		{!! csrf_field() !!}
-		<div class='label'>Name</div>
+		<div class='label required'>Name</div>
 		<input name="name" class='input' type="text">
 		<div class='label'>Summary</div>
 		<textarea name="summary" class='input text-area'></textarea>
-		<div class='label'>Date in Timeline</div>
+		<div class='label required'>Date in Timeline</div>
 		<input name="timelineDate" class='input' type='date'>
 		<div class='buttonHolder'>
 			<button type='submit' class='formButton'>Save</button>

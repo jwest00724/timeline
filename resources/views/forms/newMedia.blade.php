@@ -20,10 +20,12 @@
 				}
 				
 				var collectionHTML = "<option disabled selected> --- Select a collection --- </option>";
-				var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
-				var collections = seriesToCollections[selectedAbbr];
-				for (var i = 0; i < Object.keys(collections).length; i++) {
-					collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
+				if (selectedAbbr != 'newSeries') {
+					var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
+					var collections = seriesToCollections[selectedAbbr];
+					for (var i = 0; i < Object.keys(collections).length; i++) {
+						collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
+					}
 				}
 				collectionHTML += '<option name="collection" value="None">None</option>';
 				collectionHTML += '<option name="collection" value="newCollection">New Collection</option>';
@@ -64,7 +66,7 @@
 		{!! csrf_field() !!}
 		
 		<!-- Name -->
-		<div class='label'>Name</div>
+		<div class='label required'>Name</div>
 		<input name="name" class='input' type="text">
 		
 		<!-- Credit -->
@@ -72,7 +74,7 @@
 		<input name="credit" class='input' type="text">
 		
 		<!-- Series -->
-		<div class='label'>Series</div>
+		<div class='label required'>Series</div>
 		<select class='input' id='seriesDropdown'>
 			<option disabled selected> --- Select a series --- </option>
 			@foreach($series as $aSeries)
@@ -89,7 +91,7 @@
 		</div>
 		
 		<!-- Collection -->
-		<div class='label'>Collection</div>
+		<div class='label required'>Collection</div>
 		<select class='input' id='collectionDropdown'>
 			<option disabled selected> --- Select a series to see collections --- </option>
 		</select>
@@ -105,7 +107,7 @@
 		</div>
 		
 		<!-- Medium -->
-		<div class='label'>Medium</div>
+		<div class='label required'>Medium</div>
 		<select class='input' id='mediumDropdown'>
 			<option disabled selected> --- Select a medium --- </option>
 			@foreach($mediums as $medium)
@@ -124,7 +126,7 @@
 		<textarea name="summary" class='input text-area'></textarea>
 		
 		<!-- Timeline Date -->
-		<div class='label'>Date in Timeline</div>
+		<div class='label required'>Date in Timeline</div>
 		<input name="timelineDate" class='input' type='date'>
 		
 		<!-- Save/Reset/Cancel Buttons -->

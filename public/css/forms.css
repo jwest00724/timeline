@@ -34,6 +34,11 @@
 	display: none;
 }
 
+.required::before {
+	content: '* ';
+	color: #aa66ff;
+}
+
 .errors {
 	display: inline-block;
 	margin-right: auto;

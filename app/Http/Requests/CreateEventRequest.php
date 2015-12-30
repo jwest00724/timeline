@@ -25,7 +25,6 @@ class CreateEventRequest extends Request
     {
         return [
             'name' => 'required',
-			'summary' => 'required',
 			'timelineDate' => 'required'
         ];
     }

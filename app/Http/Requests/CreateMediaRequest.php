@@ -24,7 +24,11 @@ class CreateMediaRequest extends Request
     public function rules()
     {
         return [
-            //
+            'name' 			=> 'required',
+			'series' 		=> 'required',
+			'collection' 	=> 'required',
+			'medium'		=> 'required',
+			'timelineDate' 	=> 'required',
         ];
     }
 }

@@ -27,7 +27,7 @@ class MediaController extends Controller
 		return view('forms/newMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections]);
 	}
 	
-    public function create() {
+    public function create(Requests\CreateMediaRequest $request) {
 		return redirect('/');
 	}
 }
