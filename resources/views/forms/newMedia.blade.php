@@ -2,6 +2,23 @@
 
 @section('formContent')
 
+	<script>
+		
+		$(document).ready(function() {
+			
+			$('#seriesDropdown').change(function() {
+				var selected = this.options[this.selectedIndex].text;
+				if (selected == 'New Series') {
+					$('#hiddenSeries').slideDown('hidden');
+				} else {
+					$('#hiddenSeries').slideUp('hidden');
+				}
+			});
+			
+		});
+		
+	</script>
+	
 	<!-- New event form -->
 	<form role="form" method="POST" action="{{ url('/newMedia') }}">
 		{!! csrf_field() !!}
@@ -16,12 +33,19 @@
 		
 		<!-- Series -->
 		<div class='label'>Series</div>
-		<select class='input'>
+		<select class='input' id='seriesDropdown'>
 			@foreach($series as $aSeries)
 				<option name='series' value='{{ $aSeries }}'>{{ $seriesAbbrToName[$aSeries] }}</option>
 			@endforeach
 			<option value='newSeries'>New Series</option>
 		</select>
+		
+		<div class='hidden' id='hiddenSeries'>
+			<div class='label'>New Series Abbreviation</div>
+			<input name='newSeriesAbbr', class='input', type='text'>
+			<div class='label'>New Series Name</div>
+			<input name='newSeriesName', class='input', type='text'>
+		</div>
 		
 		<!-- Collection -->
 		<div class='label'>Collection</div>
