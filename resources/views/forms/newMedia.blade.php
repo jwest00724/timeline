@@ -6,12 +6,52 @@
 		
 		$(document).ready(function() {
 			
+			/*
+			** Show/hide form to create new series. Also update collection
+			** dropdown to match the selected series.
+			*/
 			$('#seriesDropdown').change(function() {
 				var selected = this.options[this.selectedIndex].text;
+				var selectedAbbr = $(this.options[this.selectedIndex]).attr('value');
 				if (selected == 'New Series') {
-					$('#hiddenSeries').slideDown('hidden');
+					$('#hiddenSeries').slideDown();
 				} else {
-					$('#hiddenSeries').slideUp('hidden');
+					$('#hiddenSeries').slideUp();
+				}
+				
+				var collectionHTML = "<option disabled selected> --- Select a collection --- </option>";
+				var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
+				var collections = seriesToCollections[selectedAbbr];
+				for (var i = 0; i < Object.keys(collections).length; i++) {
+					collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
+				}
+				collectionHTML += '<option name="collection" value="None">None</option>';
+				collectionHTML += '<option name="collection" value="newCollection">New Collection</option>';
+				$('#collectionDropdown').html(collectionHTML);
+			});
+			
+			/* Show/hide form to create new medium */
+			$('#mediumDropdown').change(function() {
+				var selected = this.options[this.selectedIndex].text;
+				if (selected == 'New Medium') {
+					$('#hiddenMedium').slideDown();
+				} else {
+					$('#hiddenMedium').slideUp();
+				}
+			});
+			
+			/* Show/hide form to create new collection */
+			$('#collectionDropdown').change(function() {
+				var selected = this.options[this.selectedIndex].text;
+				if (selected == 'None') {
+					$('#hiddenNumber').slideUp();
+					$('#hiddenCollection').slideUp();
+				} else if (selected == 'New Collection') {
+					$('#hiddenNumber').slideDown();
+					$('#hiddenCollection').slideDown();
+				} else {
+					$('#hiddenNumber').slideDown();
+					$('#hiddenCollection').slideUp();
 				}
 			});
 			
@@ -34,10 +74,11 @@
 		<!-- Series -->
 		<div class='label'>Series</div>
 		<select class='input' id='seriesDropdown'>
+			<option disabled selected> --- Select a series --- </option>
 			@foreach($series as $aSeries)
 				<option name='series' value='{{ $aSeries }}'>{{ $seriesAbbrToName[$aSeries] }}</option>
 			@endforeach
-			<option value='newSeries'>New Series</option>
+			<option name='series' value='newSeries'>New Series</option>
 		</select>
 		
 		<div class='hidden' id='hiddenSeries'>
@@ -49,19 +90,34 @@
 		
 		<!-- Collection -->
 		<div class='label'>Collection</div>
-		<select class='input'>
-			<option>list of collections</option>
+		<select class='input' id='collectionDropdown'>
+			<option disabled selected> --- Select a series to see collections --- </option>
 		</select>
 		
-		<!-- Number in Collection -->
-		<div class='label'>Number in Collection</div>
-		<input name="numberInCollection" class='input' type="number">
+		<div class='hidden' id='hiddenCollection'>
+			<div class='label'>New Collection Name</div>
+			<input name='newCollectionName', class='input', type='text'>
+		</div>
+		
+		<div class='hidden' id='hiddenNumber'>
+			<div class='label'>Number in Collection</div>
+			<input name="numberInCollection" class='input' type="number">
+		</div>
 		
 		<!-- Medium -->
 		<div class='label'>Medium</div>
-		<select class='input'>
-			<option>list of mediums</option>
+		<select class='input' id='mediumDropdown'>
+			<option disabled selected> --- Select a medium --- </option>
+			@foreach($mediums as $medium)
+				<option name='medium' value='{{ $medium }}'>{{ $medium }}</option>
+			@endforeach
+			<option name='medium' value='newMedium'>New Medium</option>
 		</select>
+		
+		<div class='hidden' id='hiddenMedium'>
+			<div class='label'>New Medium Name</div>
+			<input name='newMediumName' class='input' type='text'>
+		</div>
 		
 		<!-- Summary -->
 		<div class='label'>Summary</div>
