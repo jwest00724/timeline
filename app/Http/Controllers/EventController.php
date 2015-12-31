@@ -34,12 +34,12 @@ class EventController extends Controller
 		return redirect('/');
 	}
 	
-	public function editForm() {
+	public function editForm($id) {
 		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
 		return view('forms/editEvent')->with(['tags'=>$tags]);
 	}
 	
-	public function edit() {
+	public function edit($id) {
 		dd('editing event');
 	}
 }

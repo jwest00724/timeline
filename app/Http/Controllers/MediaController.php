@@ -58,8 +58,8 @@ class MediaController extends Controller
 		return redirect('/');
 	}
 	
-	public function editForm() {
-		
+	public function editForm($id) {
+
 		$seriesAbbrToName = \App\Series::get()->pluck('seriesName', 'seriesAbbreviation')->toArray();
 		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');
@@ -77,7 +77,7 @@ class MediaController extends Controller
 		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections]);
 	}
 	
-	public function edit() {
+	public function edit($id) {
 		dd('editing media');
 	}
 }

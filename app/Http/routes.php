@@ -31,8 +31,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/newEvent', 'EventController@create');
 	Route::get('/newMedia', 'MediaController@createForm');
 	Route::post('/newMedia', 'MediaController@create');
-	Route::get('/editEvent', 'EventController@editForm');
-	Route::post('/editEvent', 'EventController@edit');
-	Route::get('/editMedia', 'MediaController@editForm');
-	Route::post('/editMedia', 'MediaController@edit');
+	Route::get('/editEvent/{id}', 'EventController@editForm');
+	Route::post('/editEvent/{id}', 'EventController@edit');
+	Route::get('/editMedia/{id}', 'MediaController@editForm');
+	Route::post('/editMedia/{id}', 'MediaController@edit');
 });
