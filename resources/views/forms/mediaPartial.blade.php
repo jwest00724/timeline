@@ -1,5 +1,22 @@
 <script>
-		
+	
+	function updateCollectionDropdown() {
+		var seriesDropdown = document.getElementById('seriesDropdown');
+		var selected = seriesDropdown.options[seriesDropdown.selectedIndex].text;
+		var selectedAbbr = seriesDropdown.options[seriesDropdown.selectedIndex].value;
+		var collectionHTML = "<option value='' selected> --- Select a collection --- </option>";
+		if (selectedAbbr != 'newSeries') {
+			var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
+			var collections = seriesToCollections[selectedAbbr];
+			for (var i = 0; i < Object.keys(collections).length; i++) {
+				collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
+			}
+		}
+		collectionHTML += '<option name="collection" value="None">None</option>';
+		collectionHTML += '<option name="collection" value="newCollection">New Collection</option>';
+		document.getElementById('collectionDropdown').innerHTML = collectionHTML;
+	}
+	
 	$(document).ready(function() {
 		
 		/*
@@ -14,18 +31,7 @@
 			} else {
 				$('#hiddenSeries').slideUp();
 			}
-			
-			var collectionHTML = "<option value='' selected> --- Select a collection --- </option>";
-			if (selectedAbbr != 'newSeries') {
-				var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
-				var collections = seriesToCollections[selectedAbbr];
-				for (var i = 0; i < Object.keys(collections).length; i++) {
-					collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
-				}
-			}
-			collectionHTML += '<option name="collection" value="None">None</option>';
-			collectionHTML += '<option name="collection" value="newCollection">New Collection</option>';
-			$('#collectionDropdown').html(collectionHTML);
+			updateCollectionDropdown();
 		});
 		
 		/* Show/hide form to create new medium */
@@ -63,11 +69,11 @@
 	
 	<!-- Name -->
 	<div class='label required'>Name</div>
-	<input name="name" class='input' type="text">
+	<input id='nameField' name="name" class='input' type="text">
 	
 	<!-- Credit -->
 	<div class='label'>Credit (Author/Director/Developer)</div>
-	<input name="credit" class='input' type="text">
+	<input id='creditField' name="credit" class='input' type="text">
 	
 	<!-- Series -->
 	<div class='label required'>Series</div>
@@ -119,11 +125,11 @@
 	
 	<!-- Summary -->
 	<div class='label'>Summary</div>
-	<textarea name="summary" class='input text-area'></textarea>
+	<textarea id='summaryField' name="summary" class='input text-area'></textarea>
 	
 	<!-- Timeline Date -->
 	<div class='label required'>Date in Timeline</div>
-	<input name="timelineDate" class='input' type='date'>
+	<input id='dateField' name="timelineDate" class='input' type='date'>
 	
 	<!-- Save/Reset/Cancel Buttons -->
 	<div class='buttonHolder'>
