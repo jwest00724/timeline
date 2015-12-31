@@ -46,6 +46,27 @@
 	color: red;
 }
 
+.tag:before {
+	content: 'x ';
+	color: blue;
+	line-height: 0px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+#tagHolder {
+	margin: 15px 0px 15px 0px;
+}
+
+.tag {
+	display: inline;
+	padding: 5px;
+	margin: 0px 3px 0px 0px;
+	background-color:#ccccff;
+	color:black;
+	border:none;
+}
+
 #tagSearch {
 	width: 80%;
 }

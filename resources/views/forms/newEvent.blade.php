@@ -3,10 +3,27 @@
 @section('formContent')
 	
 	<script>
+		
+		var currentTags = new Array();
+			
 		$(document).ready(function() {
 			
-			$('#tagSearch').on('input', function() {
-				alert('test');
+			$('#addTagButton').click(function() {
+				if ($('#tagSearch').val() == '') {
+					return;
+				}
+				
+				if (currentTags.indexOf($('#tagSearch').val()) == -1) {
+					currentTags.push($('#tagSearch').val());
+				}
+				
+				var tagHolderContent = '';
+				for (var i=0; i<currentTags.length; i++) {
+					tagHolderContent += '<button type="button" class="tag">' + currentTags[i] + '</button>'
+				}
+				
+				$('#tagHolder').html(tagHolderContent);
+				$('#tagSearch').val('');
 			});
 			
 		});
@@ -26,7 +43,7 @@
 		<!-- Tag search and input -->
 		<div class='input'>
 		<input id='tagSearch' type='text' list='tagList'>
-		<button id='addTagButton'>Add</button>
+		<button type='button' id='addTagButton'>Add</button>
 		<datalist id='tagList'>
 			@foreach($tags as $tag)
 				<option value='{{ $tag }}'>
@@ -34,6 +51,11 @@
 		</datalist>
 		</div>
 		
+		<div id='tagHolder'>
+			<!-- Tags will display here as they are selected. -->
+		</div>
+		
+		<!-- Save / Cancel buttons -->
 		<div class='buttonHolder'>
 			<button type='submit' class='formButton'>Save</button>
 			<button type='reset' class='formButton'>Reset</button>
