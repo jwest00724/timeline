@@ -60,6 +60,21 @@ class MediaController extends Controller
 	
 	public function editForm($id) {
 		
+		$media = \App\Media::get()->where('id', intval($id))->toArray();
+		if (empty($media)) {
+			return redirect('/');
+		}
+		$media = current($media);
+		
+		$model = array();
+		$model['name'] = $media['name'];
+		$model['credit'] = $media['credit'];
+		$model['series'] = $media['series'];
+		$model['collection'] = $media['collection'];
+		$model['medium'] = $media['medium'];
+		$model['summary'] = $media['summary'];
+		$model['date'] = $media['timelineDate'];
+		
 		$seriesAbbrToName = \App\Series::get()->pluck('seriesName', 'seriesAbbreviation')->toArray();
 		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');
@@ -74,7 +89,7 @@ class MediaController extends Controller
 							->toArray();
 		}
 		
-		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections]);
+		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections, 'model'=>$model]);
 	}
 	
 	public function edit($id) {
