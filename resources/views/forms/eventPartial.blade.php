@@ -2,6 +2,16 @@
 <!-- Tag Selection -->
 <script>
 	var currentTags = new Array();
+	
+	function updateTagDisplay() {
+		var tagHolderContent = '';
+		for (var i=0; i<currentTags.length; i++) {
+			tagHolderContent += '<button type="button" class="tag">' + currentTags[i] + '</button>'
+		}
+		$('#tagHolder').html(tagHolderContent);
+		$('#tagSearch').val('');
+	}
+	
 	$(document).ready(function() {
 		
 		$('#addTagButton').click(function() {
@@ -11,12 +21,7 @@
 			if (currentTags.indexOf($('#tagSearch').val()) == -1) {
 				currentTags.push($('#tagSearch').val());
 			}
-			var tagHolderContent = '';
-			for (var i=0; i<currentTags.length; i++) {
-				tagHolderContent += '<button type="button" class="tag">' + currentTags[i] + '</button>'
-			}
-			$('#tagHolder').html(tagHolderContent);
-			$('#tagSearch').val('');
+			updateTagDisplay();
 		});
 		
 		$(document).on('click', '.tag', function() {
@@ -44,11 +49,11 @@
 	<!-- Form -->
 	{!! csrf_field() !!}
 	<div class='label required'>Name</div>
-	<input name="name" class='input' type="text">
+	<input id='nameField' name="name" class='input' type="text">
 	<div class='label'>Summary</div>
-	<textarea name="summary" class='input text-area'></textarea>
+	<textarea id='summaryField' name="summary" class='input text-area'></textarea>
 	<div class='label required'>Date in Timeline</div>
-	<input name="timelineDate" class='input' type='date'>
+	<input id='dateField' name="timelineDate" class='input' type='date'>
 	<div class='label required'>Tags</div>
 	
 	<!-- Tag search and input -->

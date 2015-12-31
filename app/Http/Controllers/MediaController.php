@@ -59,7 +59,7 @@ class MediaController extends Controller
 	}
 	
 	public function editForm($id) {
-
+		
 		$seriesAbbrToName = \App\Series::get()->pluck('seriesName', 'seriesAbbreviation')->toArray();
 		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');

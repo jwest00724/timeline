@@ -35,8 +35,15 @@ class EventController extends Controller
 	}
 	
 	public function editForm($id) {
+		
+		$model = array();
+		$model['name'] = 'filler name';
+		$model['summary'] = 'filler summary';
+		$model['date'] = date('2015-12-31');
+		$model['tags'] = array('filler tag 1', 'filler tag 2');
+		
 		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
-		return view('forms/editEvent')->with(['tags'=>$tags]);
+		return view('forms/editEvent')->with(['tags'=>$tags, 'model'=>$model]);
 	}
 	
 	public function edit($id) {
