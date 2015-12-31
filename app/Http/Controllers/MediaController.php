@@ -57,4 +57,12 @@ class MediaController extends Controller
 		
 		return redirect('/');
 	}
+	
+	public function editForm() {
+		dd('displaying edit media form');
+	}
+	
+	public function edit() {
+		dd('editing media');
+	}
 }

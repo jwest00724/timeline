@@ -33,4 +33,12 @@ class EventController extends Controller
 		
 		return redirect('/');
 	}
+	
+	public function editForm() {
+		dd('displaying edit event form');
+	}
+	
+	public function edit() {
+		dd('editing event');
+	}
 }
