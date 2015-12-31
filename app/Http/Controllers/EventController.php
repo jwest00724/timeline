@@ -36,11 +36,17 @@ class EventController extends Controller
 	
 	public function editForm($id) {
 		
+		$event = \App\Event::get()->where('id', intval($id))->toArray();
+		if (empty($event)) {
+			return redirect('/');
+		}
+		$event = current($event);
+		
 		$model = array();
-		$model['name'] = 'filler name';
-		$model['summary'] = 'filler summary';
-		$model['date'] = date('2015-12-31');
-		$model['tags'] = array('filler tag 1', 'filler tag 2');
+		$model['name'] = $event['name'];
+		$model['summary'] = $event['summary'];
+		$model['date'] = $event['timelineDate'];
+		$model['tags'] = \App\EventTag::get()->where('eventID', intval($id))->pluck('tag')->toArray();
 		
 		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
 		return view('forms/editEvent')->with(['tags'=>$tags, 'model'=>$model]);
