@@ -27,6 +27,8 @@
 			});
 			
 			$(document).on('click', '.tag', function() {
+				var index = currentTags.indexOf($(this).html());
+				currentTags.splice(index, 1);
 				$(this).remove();
 			});
 			
