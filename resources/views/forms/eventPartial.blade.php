@@ -1,45 +1,45 @@
 
-<!-- New event form -->
-<form id='newEventForm' role="form" method="POST" action="{{ url($postTo) }}">
-	
-	<!-- Tag Selection -->
-	<script>
-		var currentTags = new Array();
-		$(document).ready(function() {
-			
-			$('#addTagButton').click(function() {
-				if ($('#tagSearch').val() == '') {
-					return;
-				}
-				if (currentTags.indexOf($('#tagSearch').val()) == -1) {
-					currentTags.push($('#tagSearch').val());
-				}
-				var tagHolderContent = '';
-				for (var i=0; i<currentTags.length; i++) {
-					tagHolderContent += '<button type="button" class="tag">' + currentTags[i] + '</button>'
-				}
-				$('#tagHolder').html(tagHolderContent);
-				$('#tagSearch').val('');
-			});
-			
-			$(document).on('click', '.tag', function() {
-				var index = currentTags.indexOf($(this).html());
-				currentTags.splice(index, 1);
-				$(this).remove();
-			});
-			
-			$('#saveButton').click(function() {
-				
-				var content = '<input name="tags" value="">';
-				for (var i=0; i<currentTags.length; i++) {
-					content += '<input name="tags[' + i + ']" class="hidden" value="' + currentTags[i] + '">';
-				}
-				$('#finalTagsHolder').html(content);
-				$('#newEventForm').submit();
-			});
-			
+<!-- Tag Selection -->
+<script>
+	var currentTags = new Array();
+	$(document).ready(function() {
+		
+		$('#addTagButton').click(function() {
+			if ($('#tagSearch').val() == '') {
+				return;
+			}
+			if (currentTags.indexOf($('#tagSearch').val()) == -1) {
+				currentTags.push($('#tagSearch').val());
+			}
+			var tagHolderContent = '';
+			for (var i=0; i<currentTags.length; i++) {
+				tagHolderContent += '<button type="button" class="tag">' + currentTags[i] + '</button>'
+			}
+			$('#tagHolder').html(tagHolderContent);
+			$('#tagSearch').val('');
 		});
-	</script>
+		
+		$(document).on('click', '.tag', function() {
+			var index = currentTags.indexOf($(this).html());
+			currentTags.splice(index, 1);
+			$(this).remove();
+		});
+		
+		$('#saveButton').click(function() {
+			
+			var content = '<input name="tags" value="">';
+			for (var i=0; i<currentTags.length; i++) {
+				content += '<input name="tags[' + i + ']" class="hidden" value="' + currentTags[i] + '">';
+			}
+			$('#finalTagsHolder').html(content);
+			$('#newEventForm').submit();
+		});
+		
+	});
+</script>
+
+<!-- New event form -->
+<form id='newEventForm' role="form" method="POST" action="{{ Request::url() }}">
 	
 	<!-- Form -->
 	{!! csrf_field() !!}

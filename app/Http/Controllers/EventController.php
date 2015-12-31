@@ -35,7 +35,8 @@ class EventController extends Controller
 	}
 	
 	public function editForm() {
-		dd('displaying edit event form');
+		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
+		return view('forms/editEvent')->with(['tags'=>$tags]);
 	}
 	
 	public function edit() {
