@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Input;
 
 class CreateEventRequest extends Request
 {
@@ -23,9 +24,11 @@ class CreateEventRequest extends Request
      */
     public function rules()
     {
+		
         return [
             'name' => 'required',
-			'timelineDate' => 'required'
+			'timelineDate' => 'required',
+			'tags' => 'required'
         ];
     }
 }

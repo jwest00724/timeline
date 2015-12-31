@@ -32,11 +32,21 @@
 				$(this).remove();
 			});
 			
+			$('#saveButton').click(function() {
+				
+				var content = '<input name="tags" value="">';
+				for (var i=0; i<currentTags.length; i++) {
+					content += '<input name="tags[' + i + ']" class="hidden" value="' + currentTags[i] + '">';
+				}
+				$('#finalTagsHolder').html(content);
+				$('#newEventForm').submit();
+			});
+			
 		});
 	</script>
 	
 	<!-- New event form -->
-	<form role="form" method="POST" action="{{ url('/newEvent') }}">
+	<form id='newEventForm' role="form" method="POST" action="{{ url('/newEvent') }}">
 		{!! csrf_field() !!}
 		<div class='label required'>Name</div>
 		<input name="name" class='input' type="text">
@@ -48,6 +58,7 @@
 		
 		<!-- Tag search and input -->
 		<div class='input'>
+		<div id='finalTagsHolder' class='hidden'></div>
 		<input id='tagSearch' type='text' list='tagList'>
 		<button type='button' id='addTagButton'>Add</button>
 		<datalist id='tagList'>
@@ -63,7 +74,7 @@
 		
 		<!-- Save / Cancel buttons -->
 		<div class='buttonHolder'>
-			<button type='submit' class='formButton'>Save</button>
+			<button id='saveButton' type='button' class='formButton'>Save</button>
 			<button type='reset' class='formButton'>Reset</button>
 			<button class='formButton'>Cancel</button>
 		</div>
