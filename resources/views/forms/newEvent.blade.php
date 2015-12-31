@@ -26,6 +26,10 @@
 				$('#tagSearch').val('');
 			});
 			
+			$(document).on('click', '.tag', function() {
+				$(this).remove();
+			});
+			
 		});
 	</script>
 	
