@@ -55,13 +55,13 @@
 }
 
 #tagHolder {
-	margin: 15px 0px 15px 0px;
+	margin: 10px 0px 5px 0px;
 }
 
 .tag {
 	display: inline;
 	padding: 5px;
-	margin: 0px 3px 0px 0px;
+	margin: 0px 3px 3px 0px;
 	background-color:#ccccff;
 	color:black;
 	border:none;
