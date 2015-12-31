@@ -16,11 +16,20 @@ class EventController extends Controller
 	
     public function create(Requests\CreateEventRequest $request) {
 		
-		\App\Event::create([
-			'name'=>$request['name'],
-			'summary'=>$request['summary'],
-			'timelineDate'=>$request['timelineDate']
-		]);
+		$eventData = array(
+			'name' => $request['name'],
+			'timelineDate' => $request['timelineDate']
+		);
+		
+		if ($request['summary'] != '') {
+			$eventData['summary'] = $request['summary'];
+		}
+		
+		$event = \App\Event::create($eventData);
+		
+		foreach($request['tags'] as $tag) {
+			\App\EventTag::create(['eventID'=>$event['id'], 'tag'=>$tag]);
+		}
 		
 		return redirect('/');
 	}
