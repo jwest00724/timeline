@@ -31,4 +31,16 @@ class RelationshipController extends Controller
 		
 		return view('forms/editRelationships')->with(['eventNames'=>$eventNames, 'mediaNames'=>$mediaNames, 'eventToMedia'=>$eventToMedia, 'mediaToEvents'=>$mediaToEvents]);
 	}
+	
+	public function delete($eventID, $mediaID) {
+		return redirect('/editRelationships');
+	}
+	
+	public function newMedia($eventID) {
+		return redirect('/editRelationships');
+	}
+	
+	public function newEvent($mediaID) {
+		return redirect('/editRelationships');
+	}
 }

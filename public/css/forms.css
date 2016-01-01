@@ -30,14 +30,21 @@
 	text-align: center;
 }
 
-.deleteRelationshipButton {
+.deleteRelationshipButton, .newRelationshipButton {
 	font-size: 1.2em;
 	margin: 0px 10px 0px 0px;
-	color:red;
 	background-color: rgba(0, 0, 0, 0);
 	border:none;
 	padding: 0px;
 	font-weight: bold;
+}
+
+.deleteRelationshipButton {
+	color:red;
+}
+
+.newRelationshipButton {
+	color:green;
 }
 
 .label {
