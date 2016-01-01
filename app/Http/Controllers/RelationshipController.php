@@ -11,8 +11,13 @@ class RelationshipController extends Controller
 {
     public function editForm() {
 		
+		$eventNames = array();
+		$mediaNames = array();
 		$eventToMedia = array();
 		$mediaToEvents = array();
+		
+		$eventNames = \App\Event::get()->pluck('name', 'id')->toArray();
+		$mediaNames = \App\Media::get()->pluck('name', 'id')->toArray();
 		
 		$eventIDs = \App\Event::get()->pluck('id')->toArray();
 		foreach($eventIDs as $eventID) {
@@ -24,6 +29,6 @@ class RelationshipController extends Controller
 			$mediaToEvents[$mediaID] = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')->where('event_media.mediaID', $mediaID)->get()->pluck('name', 'id')->toArray();
 		}
 		
-		return view('forms/editRelationships')->with(['eventToMedia'=>$eventToMedia, 'mediaToEvents'=>$mediaToEvents]);
+		return view('forms/editRelationships')->with(['eventNames'=>$eventNames, 'mediaNames'=>$mediaNames, 'eventToMedia'=>$eventToMedia, 'mediaToEvents'=>$mediaToEvents]);
 	}
 }

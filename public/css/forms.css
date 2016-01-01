@@ -4,6 +4,24 @@
 	width: 300px;
 }
 
+#relationships {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#relationships td, #relationships th {
+	padding: 10px;
+	width: 50%;
+}
+
+#relationships tr td:first-child, #relationships thead tr th:first-child {
+	text-align: right;
+}
+
+#relationships tr td:nth-child(2), #relationships thead tr th:nth-child(2) {
+	text-align: left;
+}
+
 .label {
 	margin: 20px 0px 5px 0px;
 }
