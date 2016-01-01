@@ -6,9 +6,10 @@ body {
 	color:white;
 }
 
-#title {
+#title, #title a {
 	text-align: center;
 	color: #ffcc33;
+	text-decoration: none;
 }
 
 #leftButtons {

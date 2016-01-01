@@ -7,7 +7,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	</head>
 	<body>
-		<h1 id='title'>Star Trek Timeline</h1>
+		<h1 id='title'><a href='{{ url("/") }}'>Star Trek Timeline</a></h1>
 		@yield('content')
 	</body>
 </html>
