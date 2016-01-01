@@ -92,7 +92,25 @@ class MediaController extends Controller
 		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections, 'model'=>$model]);
 	}
 	
-	public function edit($id) {
-		dd('editing media');
+	private function test() {
+		dd('test');
+	}
+	
+	public function edit($id, Requests\CreateMediaRequest $request) {
+		
+		$data = $request->all();
+		
+		unset($data['_token']);
+		unset($data['newSeriesAbbr']);
+		unset($data['newSeriesName']);
+		unset($data['newCollectionName']);
+		unset($data['newMediumName']);
+		if ($data['numberInCollection'] == '') unset($data['numberInCollection']);
+		if ($data['credit'] == '') unset($data['credit']);
+		if ($data['summary'] == '') unset($data['summary']);
+		
+		\App\Media::where('id', intval($id))->update($data);
+		
+		return redirect('/');
 	}
 }

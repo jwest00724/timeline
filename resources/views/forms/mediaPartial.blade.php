@@ -9,6 +9,9 @@
 			var seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
 			var collections = seriesToCollections[selectedAbbr];
 			for (var i = 0; i < Object.keys(collections).length; i++) {
+				if (collections[i] == 'None') {
+					continue;
+				}
 				collectionHTML += '<option name="collection" value="' + collections[i] + '">' + collections[i] + '</option>';
 			}
 		}
