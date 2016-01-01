@@ -35,4 +35,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/editEvent/{id}', 'EventController@edit');
 	Route::get('/editMedia/{id}', 'MediaController@editForm');
 	Route::post('/editMedia/{id}', 'MediaController@edit');
+	Route::get('/editRelationships', 'RelationshipController@editForm');
+	
 });
