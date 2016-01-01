@@ -67,7 +67,7 @@
 				return tableContent;
 			}
 			
-			$('.newRelationshipButton').click(function() {
+			$(document).on('click', '.newRelationshipButton', function() {
 				var id = $(this).attr('data-id');
 				$('.newRelationshipDropdown[data-id!=' + id + ']').hide();
 				$('.newRelationshipDropdown[data-id=' + id + ']').toggle();
