@@ -37,6 +37,8 @@
 				tableContent += leftContent;
 				tableContent += '</td>';
 				tableContent += '<td>';
+				
+				/* Delete relationship form */
 				$.each(rightArray, function(id, name) {
 					action = location + '/delete/';
 					if (currentView == 'events') action += leftID + '/' + id;
@@ -48,27 +50,34 @@
 					tableContent += name + "<br>";
 				});
 				
-				/* Delete relationship form */
+				/* New relationship form */
 				action = location + '/new';
 				if (currentView == 'events') action += 'Media/' + leftID;
 				else action += 'Event/' + leftID;
-				tableContent += '<form role="form" method="POST" action="' + action + '">';
+				tableContent += '<form class="newRelationshipForm" data-id="' + leftID + '" role="form" method="POST" action="' + action + '">';
 				tableContent += '{!! csrf_field() !!}';
-				tableContent += '</form>';
-				
-				/* New relationship form */
-				tableContent += '<button type="submit" data-id="' + leftID + '" class="newRelationshipButton">+</button>';
-				tableContent += '<select class="newRelationshipDropdown hidden" data-id="' + leftID + '">';
-				tableContent += '<option value="1">Option 1</option>';
-				tableContent += '<option value="2">Option 2</option>';
+				tableContent += '<button type="button" data-id="' + leftID + '" class="newRelationshipButton">+</button>';
+				tableContent += '<select name="newItem" class="newRelationshipDropdown hidden" data-id="' + leftID + '">';
+				tableContent += '<option value=""> --- Select a relationship --- </option>';
+				var optionNames = (currentView == 'events' ? mediaNames : eventNames);
+				$.each(optionNames, function(id, name) {
+					tableContent += '<option value=' + id + '>' + name + '</option>';
+				});
 				tableContent += '</select>';
+				tableContent += '</form>';
 				tableContent += '</td>';
 				tableContent += '</tr>';
 				return tableContent;
 			}
 			
+			$(document).on('change', '.newRelationshipDropdown', function() {
+				var id = $(this).attr('data-id');
+				$('.newRelationshipForm[data-id=' + id + ']').submit();
+			});
+			
 			$(document).on('click', '.newRelationshipButton', function() {
 				var id = $(this).attr('data-id');
+				$('.newRelationshipDropdown').val('');
 				$('.newRelationshipDropdown[data-id!=' + id + ']').hide();
 				$('.newRelationshipDropdown[data-id=' + id + ']').toggle();
 			});

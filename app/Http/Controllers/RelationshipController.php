@@ -36,11 +36,19 @@ class RelationshipController extends Controller
 		return redirect('/editRelationships');
 	}
 	
-	public function newMedia($eventID) {
+	public function newMedia($eventID, Request $request) {
+		$existingRelationship = \App\EventMedia::where('eventID', $eventID)->where('mediaID', $request->newItem)->get()->toArray();
+		if (empty($existingRelationship)) {
+			\App\EventMedia::create(['eventID'=>$eventID, 'mediaID'=>$request->newItem]);
+		}
 		return redirect('/editRelationships');
 	}
 	
-	public function newEvent($mediaID) {
+	public function newEvent($mediaID, Request $request) {
+		$existingRelationship = \App\EventMedia::where('mediaID', $mediaID)->where('eventID', $request->newItem)->get()->toArray();
+		if (empty($existingRelationship)) {
+			\App\EventMedia::create(['eventID'=>$request->newItem, 'mediaID'=>$mediaID]);
+		}
 		return redirect('/editRelationships');
 	}
 }
