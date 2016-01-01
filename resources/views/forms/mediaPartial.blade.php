@@ -18,6 +18,8 @@
 		collectionHTML += '<option name="collection" value="None">None</option>';
 		collectionHTML += '<option name="collection" value="newCollection">New Collection</option>';
 		document.getElementById('collectionDropdown').innerHTML = collectionHTML;
+		$('#hiddenNumber').slideUp();
+		$('#hiddenCollection').slideUp();
 	}
 	
 	$(document).ready(function() {
