@@ -7,8 +7,11 @@
 		var mediaNames = <?php echo json_encode($mediaNames) ?>;
 		var eventToMedia = <?php echo json_encode($eventToMedia) ?>;
 		var mediaToEvents = <?php echo json_encode($mediaToEvents) ?>;
+		var currentView = 'events';
 		
 		$(document).ready(function() {
+			
+			fillTableByEvent();
 			
 			function fillTableByEvent() {
 				var tableContent = '<thead><tr><th>Events</th><th>Media</th></tr></thead>';
@@ -44,9 +47,19 @@
 				$('#relationships').html(tableContent);
 			}
 			
-			fillTableByEvent();
+			$('#toggleViewButton').click(function() {
+				if (currentView == 'events') {
+					currentView = 'media';
+					fillTableByMedia();
+				} else {
+					currentView = 'events';
+					fillTableByEvent();
+				}
+			});
+			
 		});
 	</script>
 	
+	<div id='toggleViewButtonHolder'><button type='button' id='toggleViewButton'>< --- ></button></div>
 	<table id='relationships'></table>
 @endsection
