@@ -33,6 +33,7 @@ class RelationshipController extends Controller
 	}
 	
 	public function delete($eventID, $mediaID) {
+		\App\EventMedia::where('eventID', $eventID)->where('mediaID', $mediaID)->delete();
 		return redirect('/editRelationships');
 	}
 	
