@@ -71,6 +71,7 @@ class MediaController extends Controller
 		$model['credit'] = $media['credit'];
 		$model['series'] = $media['series'];
 		$model['collection'] = $media['collection'];
+		$model['numberInCollection'] = $media['numberInCollection'];
 		$model['medium'] = $media['medium'];
 		$model['summary'] = $media['summary'];
 		$model['date'] = $media['timelineDate'];

@@ -17,6 +17,7 @@
 			$('#collectionDropdown').val(model['collection']);
 			if (model['collection'] != 'None') {
 				$('#hiddenNumber').show();
+				$('#numberField').val(model['numberInCollection']);
 			}
 		});
 	</script>

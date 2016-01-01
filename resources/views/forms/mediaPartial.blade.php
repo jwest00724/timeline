@@ -108,7 +108,7 @@
 	
 	<div class='hidden' id='hiddenNumber'>
 		<div class='label'>Number in Collection</div>
-		<input name="numberInCollection" class='input' type="number" min='1'>
+		<input id='numberField' name="numberInCollection" class='input' type="number" min='1'>
 	</div>
 	
 	<!-- Medium -->
