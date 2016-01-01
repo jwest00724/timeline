@@ -106,9 +106,9 @@ class MediaController extends Controller
 		unset($data['newSeriesName']);
 		unset($data['newCollectionName']);
 		unset($data['newMediumName']);
-		if ($data['numberInCollection'] == '') unset($data['numberInCollection']);
-		if ($data['credit'] == '') unset($data['credit']);
-		if ($data['summary'] == '') unset($data['summary']);
+		if ($data['numberInCollection'] == '') $data['numberInCollection'] = NULL;
+		if ($data['credit'] == '') $data['credit'] = NULL;
+		if ($data['summary'] == '') $data['summary'] = NULL;
 		
 		\App\Media::where('id', intval($id))->update($data);
 		

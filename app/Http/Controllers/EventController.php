@@ -52,7 +52,20 @@ class EventController extends Controller
 		return view('forms/editEvent')->with(['tags'=>$tags, 'model'=>$model]);
 	}
 	
-	public function edit($id) {
-		dd('editing event');
+	public function edit($id, Requests\CreateEventRequest $request) {
+		$data = $request->all();
+		$tags = $data['tags'];
+		
+		if ($data['summary'] == '') $data['summary'] = NULL;
+		unset($data['_token']);
+		unset($data['tags']);
+		
+		\App\EventTag::where('eventID', intval($id))->delete();
+		foreach($tags as $tag) {
+			\App\EventTag::create(['eventID'=>intval($id), 'tag'=>$tag]);
+		}
+		
+		\App\Event::where('id', $id)->update($data);
+		return redirect('/');
 	}
 }
