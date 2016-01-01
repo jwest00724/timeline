@@ -30,6 +30,16 @@
 	text-align: center;
 }
 
+.deleteRelationshipButton {
+	font-size: 1.2em;
+	margin: 0px 10px 0px 0px;
+	color:red;
+	background-color: rgba(0, 0, 0, 0);
+	border:none;
+	padding: 0px;
+	font-weight: bold;
+}
+
 .label {
 	margin: 20px 0px 5px 0px;
 }

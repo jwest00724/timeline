@@ -16,16 +16,7 @@
 			function fillTableByEvent() {
 				var tableContent = '<thead><tr><th>Events</th><th>Media</th></tr></thead>';
 				$.each(eventToMedia, function(eventID, mediaArray) {
-					tableContent += '<tr>';
-					tableContent += '<td>';
-					tableContent += eventNames[eventID];
-					tableContent += '</td>';
-					tableContent += '<td>';
-					$.each(mediaArray, function(mediaID, mediaName) {
-						tableContent += mediaName + "<br>";
-					});
-					tableContent += '</td>';
-					tableContent += '</tr>';
+					tableContent += rowBuilder(eventNames[eventID], mediaArray);
 				});
 				$('#relationships').html(tableContent);
 			}
@@ -33,18 +24,25 @@
 			function fillTableByMedia() {
 				var tableContent = '<thead><tr><th>Media</th><th>Events</th></tr></thead>';
 				$.each(mediaToEvents, function(mediaID, eventArray) {
-					tableContent += '<tr>';
-					tableContent += '<td>';
-					tableContent += mediaNames[mediaID];
-					tableContent += '</td>';
-					tableContent += '<td>';
-					$.each(eventArray, function(eventID, eventName) {
-						tableContent += eventName + "<br>";
-					});
-					tableContent += '</td>';
-					tableContent += '</tr>';
+					tableContent += rowBuilder(mediaNames[mediaID], eventArray);
 				});
 				$('#relationships').html(tableContent);
+			}
+			
+			function rowBuilder(leftContent, rightArray) {
+				var tableContent = '';
+				tableContent += '<tr>';
+				tableContent += '<td>';
+				tableContent += leftContent;
+				tableContent += '</td>';
+				tableContent += '<td>';
+				$.each(rightArray, function(id, name) {
+					tableContent += '<button type="button" class="deleteRelationshipButton">x</button>';
+					tableContent += name + "<br>";
+				});
+				tableContent += '</td>';
+				tableContent += '</tr>';
+				return tableContent;
 			}
 			
 			$('#toggleViewButton').click(function() {
