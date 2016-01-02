@@ -39,7 +39,6 @@
 @endsection
 
 @section('bottomCenter')
-
 	<p class='label'>Date in Timeline</p>
 	<p class='attribute'>{{ $media['timelineDate'] }}</p>
 @endsection

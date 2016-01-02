@@ -81,6 +81,8 @@ class TimelineController extends Controller
 	}
 	
 	public function showEvent($id) {
-		return view('show/event');
+		$event = \App\Event::where('id', $id)->get()->toArray()[0];
+		$media = \App\Media::join('event_media', 'media.id', '=', 'event_media.mediaID')->where('event_media.eventID', $id)->get()->toArray();
+		return view('show/event')->with(['event'=>$event, 'media'=>$media]);
 	}
 }
