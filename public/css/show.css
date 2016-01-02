@@ -1,11 +1,11 @@
 #viewHolder {
 	border: 1px solid blue;
-	box-shadow: 0px 0px 50px blue;
 	padding: 15px;
 	border-radius: 25px;
-	width: 600px;
+	width: 700px;
 	margin-right: auto;
 	margin-left: auto;
+	overflow: hidden;
 }
 
 p {
@@ -25,4 +25,66 @@ p {
 .collection {
 	display: inline;
 	color: grey;
+}
+
+.label {
+	color: grey;
+	margin-bottom: 2px;
+	font-size: 0.75em;
+}
+
+hr {
+	border: none;
+	background-color: blue;
+	height: 1px;
+	margin: 30px 0px 30px 0px;
+}
+
+ul {
+	list-style-position: inside;
+	list-style-type: square;
+	margin: 0px;
+	padding: 0px;
+}
+
+.panelHolder {
+	overflow: hidden;
+}
+
+.leftPanel, .rightPanel {
+
+	font-size: 0.9em;
+	text-align: justify;
+}
+
+.leftPanel {
+	float: left;
+	width: 47%;
+}
+
+.rightPanel {
+	text-align: left;
+	float: right;
+	width: 47%;
+}
+
+.bottomLeft {
+	float: left;
+	text-align: left;
+}
+
+.bottomCenter {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 100px;
+}
+
+.bottomRight {
+	float: right;
+	text-align: right;
+}
+
+.clear {
+	clear: both;
 }
