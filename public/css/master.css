@@ -1,0 +1,13 @@
+body {
+	background-attachment: fixed;
+	background-position: center;
+	background-color: black;
+	font-family: Verdana;
+	color:white;
+}
+
+#title, #title a {
+	text-align: center;
+	color: #ffcc33;
+	text-decoration: none;
+}

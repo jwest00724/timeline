@@ -93,10 +93,6 @@ class MediaController extends Controller
 		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections, 'model'=>$model]);
 	}
 	
-	private function test() {
-		dd('test');
-	}
-	
 	public function edit($id, Requests\CreateMediaRequest $request) {
 		
 		$data = $request->all();

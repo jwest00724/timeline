@@ -1,7 +1,9 @@
 @extends('master')
 
 @section('content')
-
+	
+	<link rel='stylesheet' type='text/css' href='{!! asset("css/forms.css") !!}'>
+	
 	<!-- Form validation errors -->
 	@if (count($errors) > 0)
 		<div class='errorHolder'>

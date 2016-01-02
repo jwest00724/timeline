@@ -2,6 +2,8 @@
 
 @section('content')
 	
+	<link rel='stylesheet' type='text/css' href='{!! asset("css/relationships.css") !!}'>
+	
 	<script>
 		var eventNames = <?php echo json_encode($eventNames) ?>;
 		var mediaNames = <?php echo json_encode($mediaNames) ?>;

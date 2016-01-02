@@ -2,6 +2,8 @@
 
 @section('content')
 	
+	<link rel='stylesheet' type='text/css' href='{!! asset("css/timeline.css") !!}'>
+	
 	<script>
 	
 		/* Filtered data */
