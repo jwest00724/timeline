@@ -64,6 +64,42 @@
 			}
 		});
 		
+		$('#newSeriesNameField').keyup(function() {
+			
+			String.prototype.capitalize = function() {
+				var temp = this.toLowerCase();
+				temp = temp.replace('nine',  '9');
+				temp = temp.replace('eight', '8');
+				temp = temp.replace('seven', '7');
+				temp = temp.replace('six',   '6');
+				temp = temp.replace('five',  '5');
+				temp = temp.replace('four',  '4');
+				temp = temp.replace('three', '3');
+				temp = temp.replace('two',   '2');
+				temp = temp.replace('one',   '1');
+				temp = temp.replace('zero',  '0');
+				temp = temp.replace(/[^A-Za-z0-9\s]/g, '');
+				if (!(temp.replace('star trek', '').trim() == '' ||
+					  temp.replace('star trek', '').trim() == ':'))
+						temp = temp.replace('star trek', '').trim();
+				return temp.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
+			};
+			
+			var abbr = '';
+			var val = $(this).val().toLowerCase().capitalize();
+			if (val.trim() == '') {
+				abbr = '';
+			} else if (val.trim().indexOf(' ') == -1) {
+				for (var i=0; i<val.length && i<3; i++) {
+					abbr += val[i].toUpperCase();
+				}
+			} else {
+				abbr = val.match(/[A-Z0-9]/g).join('');
+				$('#newSeriesAbbrField').val(abbr);
+			}
+			$('#newSeriesAbbrField').val(abbr);
+		});
+		
 	});
 	
 </script>
@@ -91,10 +127,10 @@
 	</select>
 	
 	<div class='hidden' id='hiddenSeries'>
-		<div class='label'>New Series Abbreviation</div>
-		<input name='newSeriesAbbr', class='input', type='text'>
 		<div class='label'>New Series Name</div>
-		<input name='newSeriesName', class='input', type='text'>
+		<input id='newSeriesNameField' name='newSeriesName', class='input', type='text'>
+		<div class='label'>New Series Abbreviation</div>
+		<input id='newSeriesAbbrField' name='newSeriesAbbr', class='input', type='text'>
 	</div>
 	
 	<!-- Collection -->
