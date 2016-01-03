@@ -25,3 +25,12 @@
 	<p class='label'>Date in Timeline</p>
 	<p class='attribute'>{{ $event['timelineDate'] }}</p>
 @endsection
+
+<!-- Edit and Delete Buttons -->
+@section('deleteLink')
+	delete
+@endsection
+
+@section('editLink')
+	{!! url('/editEvent', $event["id"]) !!}
+@endsection

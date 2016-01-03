@@ -40,4 +40,13 @@
 		</div>
 	</div>
 	
+	<!-- Edit and Delete Buttons -->
+	<div class='tabButton'>
+		<a href='@yield("deleteLink")'>delete</a>
+	</div>
+	
+	<div class='tabButton'>
+		<a href='@yield("editLink")'>edit</a>
+	</div>
+	
 @endsection

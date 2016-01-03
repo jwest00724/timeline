@@ -43,3 +43,12 @@
 	<p class='attribute'>{{ $media['timelineDate'] }}</p>
 @endsection
 
+<!-- Edit and Delete Buttons -->
+@section('deleteLink')
+	delete
+@endsection
+
+@section('editLink')
+	{!! url('/editMedia', $media["id"]) !!}
+@endsection
+
