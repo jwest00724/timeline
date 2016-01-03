@@ -73,16 +73,4 @@ class TimelineController extends Controller
 				
 		return view('timeline')->with(['tags'=>$tags, 'eventIDToTags'=>$eventIDToTags, 'eventMediaPairs'=>$eventMediaPairs, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
 	}
-	
-	public function showMedia($id) {
-		$media = \App\Media::where('id', $id)->get()->toArray()[0];
-		$events = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')->where('event_media.mediaID', $id)->get()->toArray();
-		return view('show/media')->with(['media'=>$media, 'events'=>$events]);
-	}
-	
-	public function showEvent($id) {
-		$event = \App\Event::where('id', $id)->get()->toArray()[0];
-		$media = \App\Media::join('event_media', 'media.id', '=', 'event_media.mediaID')->where('event_media.eventID', $id)->get()->toArray();
-		return view('show/event')->with(['event'=>$event, 'media'=>$media]);
-	}
 }
