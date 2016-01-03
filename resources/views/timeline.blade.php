@@ -133,13 +133,17 @@
 				}
 				newHTML = newHTML + '<tr><td id="eventCell">';
 				for (var eventIndex = 0; eventIndex < filteredEvents[filteredDates[dateIndex]].length; eventIndex++) {
-					newHTML = newHTML + filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '<br>';
+					var id = filteredEvents[filteredDates[dateIndex]][eventIndex]['id'];
+					var link = '{!! url("/showEvent/' + id + '") !!}';
+					newHTML = newHTML + '<a href="'+link+'">' + filteredEvents[filteredDates[dateIndex]][eventIndex]['name'] + '</a><br>';
 				}
 				newHTML = newHTML + '</td><td id="dateCell">' + filteredDates[dateIndex] + '</td>';
 				newHTML = newHTML + '<td id="mediaCell">';
 				
 				for (var mediaIndex = 0; mediaIndex < filteredMedia[filteredDates[dateIndex]].length; mediaIndex++) {
-					newHTML = newHTML + filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '<br>';
+					var id = filteredMedia[filteredDates[dateIndex]][mediaIndex]['id']
+					var link = '{!! url("/showMedia/' + id + '") !!}';
+					newHTML = newHTML + '<a href="'+link+'">' + filteredMedia[filteredDates[dateIndex]][mediaIndex]['name'] + '</a><br>';
 				}
 				newHTML = newHTML + '</td></tr>';
 			}
