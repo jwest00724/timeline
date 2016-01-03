@@ -26,7 +26,7 @@ class CreateMediaRequest extends Request
     {
 		$data = Input::all();
 		$required = array(
-			'name' 			=> 'required',
+			'name' 			=> 'required|unique:media,name',
 			'series' 		=> 'required',
 			'collection' 	=> 'required',
 			'medium'		=> 'required',
@@ -34,16 +34,16 @@ class CreateMediaRequest extends Request
 		);
 		
 		if ($data['series'] == 'newSeries') {
-			$required['newSeriesName'] = 'required';
-			$required['newSeriesAbbr'] = 'required';
+			$required['newSeriesName'] = 'required|unique:series,seriesName';
+			$required['newSeriesAbbr'] = 'required|not_in:newSeries|unique:series,seriesAbbreviation';
 		}
 		
 		if ($data['collection'] == 'newCollection') {
-			$required['newCollectionName'] = 'required';
+			$required['newCollectionName'] = 'required|not_in:newCollection';
 		}
 		
 		if ($data['medium'] == 'newMedium') {
-			$required['newMediumName'] = 'required';
+			$required['newMediumName'] = 'required|not_in:newMedium';
 		}
 		
         return $required;

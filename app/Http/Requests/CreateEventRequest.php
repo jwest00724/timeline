@@ -26,7 +26,7 @@ class CreateEventRequest extends Request
     {
 		
         return [
-            'name' => 'required',
+            'name' => 'required|unique:events,name',
 			'timelineDate' => 'required',
 			'tags' => 'required'
         ];

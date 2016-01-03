@@ -31,7 +31,7 @@
 		$('#seriesDropdown').change(function() {
 			var selected = this.options[this.selectedIndex].text;
 			var selectedAbbr = $(this.options[this.selectedIndex]).attr('value');
-			if (selected == 'New Series') {
+			if (selectedAbbr == 'newSeries') {
 				$('#hiddenSeries').slideDown();
 			} else {
 				$('#hiddenSeries').slideUp();
@@ -42,7 +42,8 @@
 		/* Show/hide form to create new medium */
 		$('#mediumDropdown').change(function() {
 			var selected = this.options[this.selectedIndex].text;
-			if (selected == 'New Medium') {
+			var selectedValue = this.options[this.selectedIndex].value;
+			if (selectedValue == 'newMedium') {
 				$('#hiddenMedium').slideDown();
 			} else {
 				$('#hiddenMedium').slideUp();
@@ -52,10 +53,11 @@
 		/* Show/hide form to create new collection */
 		$('#collectionDropdown').change(function() {
 			var selected = this.options[this.selectedIndex].text;
-			if (selected == 'None') {
+			var selectedVal = this.options[this.selectedIndex].value;
+			if (selected == 'None' || selectedVal == '') {
 				$('#hiddenNumber').slideUp();
 				$('#hiddenCollection').slideUp();
-			} else if (selected == 'New Collection') {
+			} else if (selectedVal == 'newCollection') {
 				$('#hiddenNumber').slideDown();
 				$('#hiddenCollection').slideDown();
 			} else {

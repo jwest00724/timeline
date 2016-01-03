@@ -119,6 +119,8 @@ class MediaController extends Controller
 	
 	public function delete($id) {
 		\App\Media::where('id', $id)->delete();
+		\App\EventMedia::where('mediaID', $id)->delete();
+		\App\Series::leftJoin('media', 'series.seriesAbbreviation', '=', 'media.series')->where('media.series', NULL)->delete();
 		return redirect('/');
 	}
 }

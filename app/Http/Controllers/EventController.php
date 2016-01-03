@@ -77,6 +77,8 @@ class EventController extends Controller
 	
 	public function delete($id) {
 		\App\Event::where('id', $id)->delete();
+		\App\EventMedia::where('eventID', $id)->delete();
+		\App\EventTag::where('eventID', $id)->delete();
 		return redirect('/');
 	}
 }
