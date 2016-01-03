@@ -74,4 +74,9 @@ class EventController extends Controller
 		$media = \App\Media::join('event_media', 'media.id', '=', 'event_media.mediaID')->where('event_media.eventID', $id)->get()->toArray();
 		return view('show/event')->with(['event'=>$event, 'media'=>$media]);
 	}
+	
+	public function delete($id) {
+		\App\Event::where('id', $id)->delete();
+		return redirect('/');
+	}
 }

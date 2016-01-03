@@ -42,7 +42,7 @@
 	
 	<!-- Edit and Delete Buttons -->
 	<div class='tabButton'>
-		<a href='@yield("deleteLink")'>delete</a>
+		<a href='@yield("deleteLink")' onclick='return confirm("This entry will be deleted.")'>delete</a>
 	</div>
 	
 	<div class='tabButton'>

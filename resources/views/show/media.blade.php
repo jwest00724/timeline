@@ -45,7 +45,7 @@
 
 <!-- Edit and Delete Buttons -->
 @section('deleteLink')
-	delete
+	{!! url('/deleteMedia', $media["id"]) !!}
 @endsection
 
 @section('editLink')

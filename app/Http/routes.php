@@ -41,5 +41,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/editRelationships/newEvent/{mediaID}', 'RelationshipController@newEvent');
 	Route::get('/showMedia/{id}', 'MediaController@show');
 	Route::get('/showEvent/{id}', 'EventController@show');
+	Route::get('/deleteMedia/{id}', 'MediaController@delete');
+	Route::get('/deleteEvent/{id}', 'EventController@delete');
 	
 });

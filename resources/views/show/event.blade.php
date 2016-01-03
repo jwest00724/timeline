@@ -28,7 +28,7 @@
 
 <!-- Edit and Delete Buttons -->
 @section('deleteLink')
-	delete
+	{!! url('/deleteEvent', $event["id"]) !!}
 @endsection
 
 @section('editLink')
