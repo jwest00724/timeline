@@ -193,6 +193,19 @@
 		});
 	</script>
 	
+	<!-- Buttons to create new entries -->
+	<div id='topButtonHolder'>
+		<div id='newEventButton'>
+			<a href='{{ url("/newEvent") }}'>new event</a>
+		</div>
+		<div id='editRelationshipsButton'>
+			<a href='{{ url("/editRelationships") }}'>edit relationships</a>
+		</div>
+		<div id='newMediaButton'>
+			<a href='{{ url("/newMedia") }}'>new media</a>
+		</div>
+	</div>
+	
 	<!-- Buttons to filter events -->
 	<div id='leftButtons'>
 		<p class='label'>Tags</p>

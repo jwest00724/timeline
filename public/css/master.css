@@ -4,10 +4,16 @@ body {
 	background-color: black;
 	font-family: Verdana;
 	color:white;
+	min-width: 700px;
 }
 
 #title, #title a {
 	text-align: center;
 	color: #ffcc33;
+	text-decoration: none;
+}
+
+a {
+	color: #9999ff;
 	text-decoration: none;
 }
