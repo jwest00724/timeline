@@ -15,7 +15,7 @@
 	<p class='label'>Relevant Media</p>
 	<ul>
 		@foreach ($media as $thisMedia)
-			<li>{{ $thisMedia['name'] }}</li>
+			<li><a href='{{ url("/showMedia", $thisMedia["id"]) }}'>{{ $thisMedia['name'] }}</a></li>
 		@endforeach
 	</ul>
 @endsection

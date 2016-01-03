@@ -22,7 +22,7 @@
 	<p class='label'>Relevant Events</p>
 	<ul>
 		@foreach ($events as $event)
-			<li>{{ $event['name'] }}</li>
+			<li><a href='{{ url("/showEvent", $event["id"]) }}'>{{ $event['name'] }}</a></li>
 		@endforeach
 	</ul>
 @endsection
