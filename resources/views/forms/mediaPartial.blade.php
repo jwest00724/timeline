@@ -174,14 +174,20 @@
 	<div class='label required'>Date in Timeline</div>
 	<input id='dateField' name="timelineDate" class='input' type='date'>
 	
-	<!-- Save/Reset/Cancel Buttons -->
-	@section('saveButton')
-	<a><button type='submit'>save</button></a>
-	@endsection
-	@section('resetButton')
-	<button type='reset'>reset</button>
-	@endsection
-	@section('cancelButton')
-	<button type='button'>cancel</button>
-	@endsection
+	<!-- Hidden Save/Reset/Cancel Buttons -->
+	<input type='submit' id='submitButton' class='hidden'>
+	<input type='reset' id='resetButton' class='hidden'>
+	<input type='button' id='cancelButton' class='hidden'>
+	
 </form>
+
+<!-- Visible save/reset/cancel buttons -->
+@section('saveButton')
+<label for='submitButton'>save</label>
+@endsection
+@section('resetButton')
+<label for='resetButton'>reset</label>
+@endsection
+@section('cancelButton')
+<label for='cancelButton'>cancel</label>
+@endsection

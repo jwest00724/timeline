@@ -36,7 +36,7 @@
 	padding: 10px;
 }
 
-.formButton button {
+.formButton label {
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
 	color: #9999ff;

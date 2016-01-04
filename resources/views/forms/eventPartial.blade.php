@@ -72,14 +72,20 @@
 		<!-- Tags will display here as they are selected. -->
 	</div>
 	
-	<!-- Save / Cancel buttons -->
-	@section('saveButton')
-	<button id='saveButton' type='button'>save</button>
-	@endsection
-	@section('resetButton')
-	<button type='reset'>reset</button>
-	@endsection
-	@section('cancelButton')
-	<button type='button'>cancel</button>
-	@endsection
+	<!-- Hidden Hidden Save/Reset/Cancel Buttons -->
+	<input type='button' id='saveButton' class='hidden'>
+	<input type='reset' id='resetButton' class='hidden'>
+	<input type='button' id='cancelButton' class='hidden'>
+	
 </form>
+
+<!-- Visible Save / Cancel buttons -->
+@section('saveButton')
+<label for='saveButton'>save</label>
+@endsection
+@section('resetButton')
+<label for='resetButton'>reset</label>
+@endsection
+@section('cancelButton')
+<label for='cancelButton'>cancel</label>
+@endsection
