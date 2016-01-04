@@ -74,7 +74,7 @@
 	
 	<!-- Hidden Hidden Save/Reset/Cancel Buttons -->
 	<input type='button' id='saveButton' class='hidden'>
-	<input type='reset' id='resetButton' class='hidden'>
+	<input type='button' id='resetButton' class='hidden'>
 	<input type='button' id='cancelButton' class='hidden'>
 	
 </form>

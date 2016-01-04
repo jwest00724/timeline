@@ -4,6 +4,17 @@
 	
 	<link rel='stylesheet' type='text/css' href='{!! asset("css/forms.css") !!}'>
 	
+	<script>
+		$(document).ready(function() {
+			$('#resetButton').click(function() {
+				location.reload();
+			});
+			$('#cancelButton').click(function() {
+				window.history.back();
+			});
+		});
+	</script>
+	
 	<!-- Form validation errors -->
 	@if (count($errors) > 0)
 		<div class='errorHolder'>
