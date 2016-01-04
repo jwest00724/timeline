@@ -9,11 +9,16 @@
 		var mediaNames = <?php echo json_encode($mediaNames) ?>;
 		var eventToMedia = <?php echo json_encode($eventToMedia) ?>;
 		var mediaToEvents = <?php echo json_encode($mediaToEvents) ?>;
-		var currentView = 'events';
+		var currentView = localStorage.getItem("currentView");
+		if (currentView == null) currentView = 'events';
 		
 		$(document).ready(function() {
 			var location = '{{ Request::url() }}';
-			fillTableByEvent();
+			if (currentView == 'media') {
+				fillTableByMedia();
+			} else {
+				fillTableByEvent();
+			}
 			
 			function fillTableByEvent() {
 				var tableContent = '<thead><tr><th>Events</th><th>Media</th></tr></thead>';
@@ -92,6 +97,7 @@
 					currentView = 'events';
 					fillTableByEvent();
 				}
+				localStorage.setItem('currentView', currentView);
 			});
 			
 		});
