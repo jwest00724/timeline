@@ -17,11 +17,23 @@
 }
 
 #toggleViewButton {
-	padding: 5px;
+	font-size: 1em;
+	color: #9999ff;
+	background-color: black;
+	padding: 10px;
+	border: 1px solid blue;
+	margin-top: -1px;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#toggleViewButton:focus {
+	outline:0;
 }
 
 #toggleViewButtonHolder {
+	border-top: 1px solid blue;
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .deleteRelationshipButton, .newRelationshipButton {

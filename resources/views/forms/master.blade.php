@@ -20,4 +20,16 @@
 	<div class='formHolder'>
 		@yield('formContent')
 	</div>
+	
+	<div class='buttonHolder'>
+		<div class='formButton'>
+			@yield('saveButton')
+		</div>
+		<div class='formButton'>
+			@yield('resetButton')
+		</div>
+		<div class='formButton'>
+			@yield('cancelButton')
+		</div>
+	</div>
 @endsection

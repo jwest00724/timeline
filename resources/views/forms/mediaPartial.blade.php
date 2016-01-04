@@ -175,9 +175,13 @@
 	<input id='dateField' name="timelineDate" class='input' type='date'>
 	
 	<!-- Save/Reset/Cancel Buttons -->
-	<div class='buttonHolder'>
-		<button type='submit' class='formButton'>Save</button>
-		<button type='reset' class='formButton'>Reset</button>
-		<button class='formButton'>Cancel</button>
-	</div>
+	@section('saveButton')
+	<a><button type='submit'>save</button></a>
+	@endsection
+	@section('resetButton')
+	<button type='reset'>reset</button>
+	@endsection
+	@section('cancelButton')
+	<button type='button'>cancel</button>
+	@endsection
 </form>

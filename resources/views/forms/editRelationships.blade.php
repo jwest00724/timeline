@@ -97,6 +97,12 @@
 		});
 	</script>
 	
-	<div id='toggleViewButtonHolder'><button type='button' id='toggleViewButton'>< --- ></button></div>
+	
+	<!-- Button to change the table view -->
+	<div id='toggleViewButtonHolder'>
+		<button type='button' id='toggleViewButton'><< = >></button>
+	</div>
+	
+	<!-- Table view of relationships -->
 	<table id='relationships'></table>
 @endsection

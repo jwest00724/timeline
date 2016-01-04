@@ -73,9 +73,13 @@
 	</div>
 	
 	<!-- Save / Cancel buttons -->
-	<div class='buttonHolder'>
-		<button id='saveButton' type='button' class='formButton'>Save</button>
-		<button type='reset' class='formButton'>Reset</button>
-		<button class='formButton'>Cancel</button>
-	</div>
+	@section('saveButton')
+	<button id='saveButton' type='button'>save</button>
+	@endsection
+	@section('resetButton')
+	<button type='reset'>reset</button>
+	@endsection
+	@section('cancelButton')
+	<button type='button'>cancel</button>
+	@endsection
 </form>

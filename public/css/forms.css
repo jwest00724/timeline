@@ -1,4 +1,7 @@
 .formHolder {
+	border: 1px solid blue;
+	border-radius: 25px;
+	padding: 5px 25px 25px 25px;
 	margin-right: auto;
 	margin-left: auto;
 	width: 300px;
@@ -20,10 +23,24 @@
 
 .buttonHolder {
 	text-align: center;
+	margin-top: 10px;
+	padding-bottom: 40px;
 }
 
 .formButton {
-	margin-top: 30px;
+	border: 1px solid blue;
+	text-align: center;
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	border-radius: 0px 0px 10px 10px;
+	padding: 10px;
+}
+
+.formButton button {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	color: #9999ff;
+	font-size: 1em;
 }
 
 .errorHolder {
@@ -36,7 +53,7 @@
 
 .required::before {
 	content: '* ';
-	color: #aa66ff;
+	color: #ffcc33;
 }
 
 .errors {
