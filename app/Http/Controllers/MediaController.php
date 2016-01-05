@@ -62,7 +62,7 @@ class MediaController extends Controller
 		
 		$media = \App\Media::get()->where('id', intval($id))->toArray();
 		if (empty($media)) {
-			return redirect('/');
+			App:abort(404);
 		}
 		$media = current($media);
 		
@@ -95,6 +95,11 @@ class MediaController extends Controller
 	
 	public function edit($id, Requests\CreateMediaRequest $request) {
 		
+		$media = \App\Media::get()->where('id', intval($id))->toArray();
+		if (empty($media)) {
+			App:abort(404);
+		}
+		
 		$data = $request->all();
 		
 		unset($data['_token']);
@@ -112,7 +117,12 @@ class MediaController extends Controller
 	}
 	
 	public function show($id) {
-		$media = \App\Media::where('id', $id)->get()->toArray()[0];
+		
+		$media = \App\Media::where('id', $id)->get()->toArray();
+		if (empty($media)) {
+			App:abort(404);
+		}
+		$media = $media[0];
 		$events = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')->where('event_media.mediaID', $id)->get()->toArray();
 		return view('show/media')->with(['media'=>$media, 'events'=>$events]);
 	}

@@ -38,7 +38,7 @@ class EventController extends Controller
 		
 		$event = \App\Event::get()->where('id', intval($id))->toArray();
 		if (empty($event)) {
-			return redirect('/');
+			App:abort(404);
 		}
 		$event = current($event);
 		
@@ -53,6 +53,12 @@ class EventController extends Controller
 	}
 	
 	public function edit($id, Requests\CreateEventRequest $request) {
+		
+		$event = \App\Event::get()->where('id', intval($id))->toArray();
+		if (empty($event)) {
+			App:abort(404);
+		}
+		
 		$data = $request->all();
 		$tags = $data['tags'];
 		
@@ -70,7 +76,12 @@ class EventController extends Controller
 	}
 	
 	public function show($id) {
-		$event = \App\Event::where('id', $id)->get()->toArray()[0];
+		
+		$event = \App\Event::where('id', $id)->get()->toArray();
+		if (empty($event)) {
+			App:abort(404);
+		}
+		$event = $event[0];
 		$media = \App\Media::join('event_media', 'media.id', '=', 'event_media.mediaID')->where('event_media.eventID', $id)->get()->toArray();
 		return view('show/event')->with(['event'=>$event, 'media'=>$media]);
 	}
