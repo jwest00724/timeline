@@ -16,7 +16,7 @@ class CreateEventsTable extends Migration
 			$table->increments('id');
 			$table->string('name');
 			$table->string('summary')->nullable();
-			$table->date('timelineDate');
+			$table->integer('timelineDate');
 			$table->timestamps();
 		});
     }

@@ -172,7 +172,7 @@
 	
 	<!-- Timeline Date -->
 	<div class='label required'>Date in Timeline</div>
-	<input id='dateField' name="timelineDate" class='input' type='date'>
+	<input id='dateField' name="timelineDate" class='input' type='number' min='0'>
 	
 	<!-- Hidden Save/Reset/Cancel Buttons -->
 	<input type='submit' id='submitButton' class='hidden'>

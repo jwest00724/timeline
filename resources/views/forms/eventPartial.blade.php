@@ -53,7 +53,7 @@
 	<div class='label'>Summary</div>
 	<textarea id='summaryField' name="summary" class='input text-area'></textarea>
 	<div class='label required'>Date in Timeline</div>
-	<input id='dateField' name="timelineDate" class='input' type='date'>
+	<input id='dateField' name="timelineDate" class='input' type='number' min='0'>
 	<div class='label required'>Tags</div>
 	
 	<!-- Tag search and input -->
