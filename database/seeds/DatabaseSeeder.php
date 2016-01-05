@@ -34,7 +34,7 @@ class SeriesTableSeeder extends Seeder
 	{
 		App\Series::create(['seriesAbbreviation'=>'TOS', 'seriesName'=>'Star Trek: The Original Series']);
 		App\Series::create(['seriesAbbreviation'=>'TNG', 'seriesName'=>'Star Trek: The Next Generation']);
-		App\Series::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space 9']);
+		App\Series::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space Nine']);
 		App\Series::create(['seriesAbbreviation'=>'VOY', 'seriesName'=>'Star Trek: Voyager']);
 		App\Series::create(['seriesAbbreviation'=>'ENT', 'seriesName'=>'Star Trek: Enterprise']);
 	}
@@ -43,12 +43,13 @@ class SeriesTableSeeder extends Seeder
 class EventsTableSeeder extends Seeder
 {
 	public function run() {
-		App\Event::create(['name'=>'Romulans join war against the Dominion',
-						'timelineDate'=>date('2100-1-1'),
-						'summary'=>'temp']);
-		App\Event::create(['name'=>'Earth makes first contact with the Vulcans',
-						'timelineDate'=>date('2100-1-1'),
-						'summary'=>'temp']);
+		/*1*/	App\Event::create(['name'=>'Earth/Vulcan First Contact',
+						'timelineDate'=>date('2063-4-5'),
+						'summary'=>"Zefram Cochrane completes his construction of The
+						Phoenix, the first ship on Earth with warp speed capabilities.
+						During the ship's first flight, it is detected by the Vulcan
+						ship T'Plana Hath. A peaceful first contact with the Vulcans
+						is made."]);
 	}
 }
 
