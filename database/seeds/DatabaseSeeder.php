@@ -35,6 +35,7 @@ class SeriesTableSeeder extends Seeder
 		App\Series::create(['seriesAbbreviation'=>'TOS', 'seriesName'=>'Star Trek: The Original Series']);
 		App\Series::create(['seriesAbbreviation'=>'TNG', 'seriesName'=>'Star Trek: The Next Generation']);
 		App\Series::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space Nine']);
+		App\Series::create(['seriesAbbreviation'=>'temp', 'seriesName'=>'StSpace Nine']);
 	}
 }
 
@@ -42,24 +43,70 @@ class EventTagsTableSeeder extends Seeder
 {
 	public function run() {
 		App\EventTag::create(['eventID'=>1, 'tag'=>'First Contact']);
-		App\EventTag::create(['eventID'=>1, 'tag'=>'Time Travel']);
-		App\EventTag::create(['eventID'=>2, 'tag'=>'Promotions']);
-		App\EventTag::create(['eventID'=>3, 'tag'=>'Galaxy Formation']);
-		App\EventTag::create(['eventID'=>3, 'tag'=>'Scientific Research']);
 		App\EventTag::create(['eventID'=>4, 'tag'=>'First Contact']);
 		App\EventTag::create(['eventID'=>5, 'tag'=>'Promotions']);
-		App\EventTag::create(['eventID'=>5, 'tag'=>'Dominion War']);
+		App\EventTag::create(['eventID'=>2, 'tag'=>'Promotions']);
+		App\EventTag::create(['eventID'=>23, 'tag'=>'Promotions']);
+		App\EventTag::create(['eventID'=>18, 'tag'=>'Scientific Research']);
+		App\EventTag::create(['eventID'=>17, 'tag'=>'Scientific Research']);
+		App\EventTag::create(['eventID'=>6, 'tag'=>'Dominion War']);
+		App\EventTag::create(['eventID'=>7, 'tag'=>'Dominion War']);
+		App\EventTag::create(['eventID'=>21, 'tag'=>'Dominion War']);
+		App\EventTag::create(['eventID'=>10, 'tag'=>'Dominion War']);
+		App\EventTag::create(['eventID'=>3, 'tag'=>'Galaxy Formation']);
+		App\EventTag::create(['eventID'=>9, 'tag'=>'Galaxy Formation']);
+		App\EventTag::create(['eventID'=>18, 'tag'=>'Galaxy Formation']);
+		App\EventTag::create(['eventID'=>11, 'tag'=>'Dax Lifecycles']);
+		App\EventTag::create(['eventID'=>12, 'tag'=>'Dax Lifecycles']);
+		App\EventTag::create(['eventID'=>13, 'tag'=>'Enterprise Progression']);
+		App\EventTag::create(['eventID'=>14, 'tag'=>'Enterprise Progression']);
+		App\EventTag::create(['eventID'=>15, 'tag'=>'Enterprise Progression']);
+		App\EventTag::create(['eventID'=>16, 'tag'=>'Enterprise Progression']);
+		App\EventTag::create(['eventID'=>19, 'tag'=>'Vulcan History']);
+		App\EventTag::create(['eventID'=>20, 'tag'=>'Vulcan History']);
+		App\EventTag::create(['eventID'=>22, 'tag'=>'Vulcan History']);
+		App\EventTag::create(['eventID'=>8, 'tag'=>'Borg']);
+		App\EventTag::create(['eventID'=>1, 'tag'=>'Borg']);
 	}
 }
 
 class EventMediaTableSeeder extends Seeder
 {
 	public function run() {
-		App\EventMedia::create(['eventID'=>3, 'mediaID'=>1]);
-		App\EventMedia::create(['eventID'=>2, 'mediaID'=>2]);
 		App\EventMedia::create(['eventID'=>1, 'mediaID'=>3]);
+		App\EventMedia::create(['eventID'=>1, 'mediaID'=>7]);
+		App\EventMedia::create(['eventID'=>1, 'mediaID'=>15]);
+		App\EventMedia::create(['eventID'=>8, 'mediaID'=>3]);
+		App\EventMedia::create(['eventID'=>8, 'mediaID'=>15]);
 		App\EventMedia::create(['eventID'=>4, 'mediaID'=>4]);
+		App\EventMedia::create(['eventID'=>6, 'mediaID'=>8]);
+		App\EventMedia::create(['eventID'=>7, 'mediaID'=>8]);
 		App\EventMedia::create(['eventID'=>5, 'mediaID'=>5]);
+		App\EventMedia::create(['eventID'=>21, 'mediaID'=>5]);
+		App\EventMedia::create(['eventID'=>21, 'mediaID'=>16]);
+		App\EventMedia::create(['eventID'=>11, 'mediaID'=>17]);
+		App\EventMedia::create(['eventID'=>12, 'mediaID'=>18]);
+		App\EventMedia::create(['eventID'=>2, 'mediaID'=>2]);
+		App\EventMedia::create(['eventID'=>3, 'mediaID'=>1]);
+		App\EventMedia::create(['eventID'=>9, 'mediaID'=>19]);
+		App\EventMedia::create(['eventID'=>18, 'mediaID'=>9]);
+		App\EventMedia::create(['eventID'=>18, 'mediaID'=>6]);
+		App\EventMedia::create(['eventID'=>19, 'mediaID'=>2]);
+		App\EventMedia::create(['eventID'=>19, 'mediaID'=>9]);
+		App\EventMedia::create(['eventID'=>13, 'mediaID'=>2]);
+		App\EventMedia::create(['eventID'=>14, 'mediaID'=>20]);
+		App\EventMedia::create(['eventID'=>14, 'mediaID'=>3]);
+		App\EventMedia::create(['eventID'=>14, 'mediaID'=>15]);
+		App\EventMedia::create(['eventID'=>10, 'mediaID'=>10]);
+		App\EventMedia::create(['eventID'=>17, 'mediaID'=>11]);
+		App\EventMedia::create(['eventID'=>15, 'mediaID'=>21]);
+		App\EventMedia::create(['eventID'=>16, 'mediaID'=>3]);
+		App\EventMedia::create(['eventID'=>16, 'mediaID'=>15]);
+		App\EventMedia::create(['eventID'=>21, 'mediaID'=>5]);
+		App\EventMedia::create(['eventID'=>20, 'mediaID'=>14]);
+		App\EventMedia::create(['eventID'=>22, 'mediaID'=>12]);
+		App\EventMedia::create(['eventID'=>22, 'mediaID'=>13]);
+		App\EventMedia::create(['eventID'=>23, 'mediaID'=>18]);
 	}
 }
 
@@ -81,6 +128,60 @@ class EventsTableSeeder extends Seeder
 		/*5*/	App\Event::create(['name'=>'Sisko Promoted to Captain',
 						'timelineDate'=>2371,
 						'summary'=>"Sisko is promoted to the rank of Captain."]);				
+		/*6*/	App\Event::create(['name'=>'Romulans Join War Against the Dominion',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*7*/	App\Event::create(['name'=>'Senator Vreenak Murdered',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*8*/	App\Event::create(['name'=>'Borg Queen Defeated',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*9*/	App\Event::create(['name'=>'Picard is Shown the Beginning of Evolution on Earth',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*10*/	App\Event::create(['name'=>'Cardassia Reforms into a Democracy',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*11*/	App\Event::create(['name'=>'Dax Symbiont Moves from Curzon to Jadzia',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*12*/	App\Event::create(['name'=>'Dax Symbiont Moves from Jadzia to Ezri',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*13*/	App\Event::create(['name'=>'USS Enterprise 1701-A Commissioned',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*14*/	App\Event::create(['name'=>'USS Enterprise 1701-E Commissioned',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*15*/	App\Event::create(['name'=>'USS Enterprise 1701-B Commissioned',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*16*/	App\Event::create(['name'=>'USS Enterprise 1701-D Destroyed',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*17*/	App\Event::create(['name'=>'A Changeling Infant is brought to DS9',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*18*/	App\Event::create(['name'=>'Genesis Planet Formed',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*19*/	App\Event::create(['name'=>'The Enterprise Crew Find Spock After his Assumed Death',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*20*/	App\Event::create(['name'=>'Spock Reveals His Suspicions of Common Vulcan/Romulan Ancestry',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*21*/	App\Event::create(['name'=>'The Dominion Infiltrates the Defiant',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*22*/	App\Event::create(['name'=>'Ancient Vulcan Weapon, Stoke of Gol, Unearthed',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
+		/*23*/	App\Event::create(['name'=>'Ezri Offered Counselor Position on DS9',
+						'timelineDate'=>0,
+						'summary'=>"temp."]);
 	}
 }
 
@@ -128,5 +229,133 @@ class MediaTableSeeder extends Seeder
 						'collection'=>'DS9 TV Series',
 						'numberInCollection'=>71,
 						'summary'=>"After Sisko is promoted to captain, he is ordered to take the Defiant on a mission along the Tzenkethi border. During their mission the crew discovers a changeling infiltrator on board, and it is revealed that their mission was fake and was set up by the Dominion. Odo is able to track down and kill the infiltrator (becoming the first changeling to harm another), but the changeling tells him, 'You are too late. We are everywhere'."]);				
+		/*6*/	App\Media::create(['name'=>'Star Trek: The Wrath of Khan',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*7*/	App\Media::create(['name'=>'Carbon Creek',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*8*/	App\Media::create(['name'=>'In the Pale Moonlight',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*9*/	App\Media::create(['name'=>'Star Trek: The Search for Spock',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*10*/	App\Media::create(['name'=>'A Stitch in Time',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*11*/	App\Media::create(['name'=>'The Begotten',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*12*/	App\Media::create(['name'=>'Gambit Pt. I',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*13*/	App\Media::create(['name'=>'Gambit Pt. II',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*14*/	App\Media::create(['name'=>'Balance of Terror',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*15*/	App\Media::create(['name'=>'Star Trek First Contact',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*16*/	App\Media::create(['name'=>'Homefront',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*17*/	App\Media::create(['name'=>'Blood Oath',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*18*/	App\Media::create(['name'=>'Afterimage',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*19*/	App\Media::create(['name'=>'All Good Things',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*20*/	App\Media::create(['name'=>'Star Trek: Insurrection',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
+		/*21*/	App\Media::create(['name'=>'Star Trek: Generations',
+						'credit'=>'temp',
+						'series'=>'temp',
+						'medium'=>'temp',
+						'timelineDate'=>0,
+						'collection'=>'temp',
+						'numberInCollection'=>0,
+						'summary'=>"temp."]);
 	}
 }
