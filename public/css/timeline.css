@@ -13,17 +13,37 @@
 	margin-left: auto;
 }
 
+#timeline a {
+	display: block;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+#timeline tr td:nth-child(2) {
+	padding: 5px;
+}
+
 #dateCell {
 	text-align: center;
 }
 
 #eventCell {
-	text-align: right;
+	text-align: left;
+	border-right: 1px solid blue;
+	border-radius: 0px 20px 0px 0px;
+	border-top: 1px solid blue;
+	padding-top: 15px;
+	padding-right: 10px;
 	width: 200px;
 }
 
 #mediaCell {
-	text-align: left;
+	text-align: right;
+	border-left: 1px solid blue;
+	border-top: 1px solid blue;
+	border-radius: 20px 0px 0px 0px;
+	padding-top: 20px;
+	padding-left: 10px;
 	width: 200px;
 }
 

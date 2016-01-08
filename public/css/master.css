@@ -2,7 +2,7 @@ body {
 	background-attachment: fixed;
 	background-position: center;
 	background-color: black;
-	font-family: Verdana;
+	font-family: Trebuchet MS, Verdana, Geneva, sans-serif;
 	color:white;
 	min-width: 700px;
 }
