@@ -18,7 +18,7 @@ class CreateMediaTable extends Migration
 			$table->string('credit')->nullable();
 			$table->string('series');
 			$table->string('medium');
-			$table->string('summary')->nullable();
+			$table->string('summary', 1000)->nullable();
 			$table->integer('timelineDate');
 			$table->string('collection');
 			$table->integer('numberInCollection')->nullable();
