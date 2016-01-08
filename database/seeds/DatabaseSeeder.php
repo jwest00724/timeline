@@ -101,7 +101,6 @@ class EventMediaTableSeeder extends Seeder
 		App\EventMedia::create(['eventID'=>17, 'mediaID'=>11]);
 		App\EventMedia::create(['eventID'=>15, 'mediaID'=>21]);
 		App\EventMedia::create(['eventID'=>16, 'mediaID'=>21]);
-		App\EventMedia::create(['eventID'=>21, 'mediaID'=>5]);
 		App\EventMedia::create(['eventID'=>20, 'mediaID'=>14]);
 		App\EventMedia::create(['eventID'=>22, 'mediaID'=>12]);
 		App\EventMedia::create(['eventID'=>22, 'mediaID'=>13]);
@@ -120,7 +119,7 @@ class EventsTableSeeder extends Seeder
 						'summary'=>"When Kirk and his crew return home after saving Earth from a giant probe, they go to trial facing many charges including the theft and damage of the USS Enterprise, and disobeying orders from the Starfleet commander. Kirk's punishment is to be demoted from the rank of Admiral to Captain, and as a result he is given the duty of commanding a starship."]);
 		/*3*/	App\Event::create(['name'=>'Origin of Humanoid Life Discovered',
 						'timelineDate'=>2369,
-						'summary'=>"Humans make the discovery that all humanoid life in the galaxy originates from one single source: a race that was alone in the galaxy that decided to send their DNA out to other worlds so that life may form. The Romulans, Klingons, and Cardassians are also present during this discovery."]);
+						'summary'=>"Humans, Klingons, Cardassians, and Romulans make the discovery that all humanoid life in the galaxy originates from one single source: an ancient race that decided to send their DNA out to other worlds so that life could form throughout the galaxy."]);
 		/*4*/	App\Event::create(['name'=>'Earth/Malcor III First Contact',
 						'timelineDate'=>2367,
 						'summary'=>"The Federation (accidentally) makes first contact with the Malcorians, a race that is on the verge of developing a warp engine."]);
@@ -135,19 +134,19 @@ class EventsTableSeeder extends Seeder
 						'summary'=>"In an attempt to trick the Romulans into thinking the Dominion is plotting against them, Sisko invites Vreenak to DS9 to discuss the war. While there, a bomb is planted on the senator's ship, killing him when he leaves the station."]);
 		/*8*/	App\Event::create(['name'=>'Borg Queen Defeated',
 						'timelineDate'=>2373,
-						'summary'=>"When the Borg, led by the Borg Queen, travelled back in time to prevent humans from making the first warp speed space flight, they were stopped and the Borg Queen killed by Captain Picard."]);
+						'summary'=>"When the Borg, led by the Borg Queen, travelled back in time to prevent humans from making the first warp speed flight into space, they were stopped and the Borg Queen killed by Captain Picard."]);
 		/*9*/	App\Event::create(['name'=>'Picard is Shown the Beginning of Evolution on Earth',
 						'timelineDate'=>2364,
-						'summary'=>"When the USS Enterprise was in the middle of researching a dangerous spatial anomaly, Q takes Picard back in time to show him when life on Earth began to develop. This was to give Picard a clue about the formation of the anomaly they were studying."]);
+						'summary'=>"While the USS Enterprise was in the middle of researching a dangerous spatial anomaly, Q takes Picard back in time to show him the moment in time when life on Earth began to develop. This was done to give Picard a clue about the formation of the anomaly they were studying."]);
 		/*10*/	App\Event::create(['name'=>'Cardassia Reforms into a Democracy',
 						'timelineDate'=>2376,
 						'summary'=>"During the war with the Dominion, the Cardassian government made many decisions that were unpoplar among civilians. This led to many Cardassians wanting reform once the war ended, after they had seen how easily their leaders fell to corruption."]);
 		/*11*/	App\Event::create(['name'=>'Dax Symbiont Moves from Curzon to Jadzia',
 						'timelineDate'=>2367,
-						'summary'=>"After Dax's host Curzon died, the symbiont moved to Jadzia. Because of her shyness during her training, her joining with Dax was controversial. Jadzia was the only Trill in history to be joined after being rejected from the training program."]);
+						'summary'=>"After Dax's host Curzon died, the symbiont moved to Jadzia. Because of her poor performance during her training, her joining with Dax was controversial. Jadzia was the only Trill in history to be joined after being rejected from the training program."]);
 		/*12*/	App\Event::create(['name'=>'Dax Symbiont Moves from Jadzia to Ezri',
 						'timelineDate'=>2374,
-						'summary'=>"When Jadzia died during the Dominion War the Dax synbiont was passed onto Ezri, who had a harder time adjusting to being joined at first."]);
+						'summary'=>"When Jadzia died during the Dominion War the Dax synbiont was passed onto Ezri, who had a hard time adjusting to being joined."]);
 		/*13*/	App\Event::create(['name'=>'USS Enterprise 1701-A Commissioned',
 						'timelineDate'=>2286,
 						'summary'=>"When the original Enterprise is decommissioned, Kirk and his crew are assigned to a new Enterprise ship."]);
@@ -159,7 +158,7 @@ class EventsTableSeeder extends Seeder
 						'summary'=>"The crew of the original Enterprise is present during the Enterprise-B's maiden voyage. When they are just about to get under way, they are forced to answer a distress beacon from a ship being pulled into an energy ribbon. During the rescue the ship is destroyed and needs to be repaired."]);
 		/*16*/	App\Event::create(['name'=>'USS Enterprise 1701-D Destroyed',
 						'timelineDate'=>2373,
-						'summary'=>"After combat with a Klingon ship, the Enterprise is badly damage and crash lands on the surface of Veridian III. The ship is beyond repair."]);
+						'summary'=>"After combat with a Klingon ship, the Enterprise is badly damaged and crash lands on the surface of Veridian III. The ship is beyond repair."]);
 		/*17*/	App\Event::create(['name'=>'A Changeling Infant is brought to DS9',
 						'timelineDate'=>2373,
 						'summary'=>"A changeling infant is found on the space station and Odo takes on the responsibility of caring for it."]);
@@ -168,7 +167,7 @@ class EventsTableSeeder extends Seeder
 						'summary'=>"The goal of the Genesis Project was to transform previously uninhabitable planets so they may be suitable to support life."]);
 		/*19*/	App\Event::create(['name'=>'The Enterprise Crew Find Spock After his Assumed Death',
 						'timelineDate'=>2285,
-						'summary'=>"Spock had died at the end of Star Trek II, but because his body was left on the Genesis planet, he was able to survive. The Enterprise crew learned of this and came back to rescue him."]);
+						'summary'=>"Spock had died at the end of Star Trek II, but because his body was left on the Genesis planet he was able to survive. The Enterprise crew learned of this and came back to rescue him."]);
 		/*20*/	App\Event::create(['name'=>'Spock Reveals His Suspicions of Common Vulcan/Romulan Ancestry',
 						'timelineDate'=>2266,
 						'summary'=>"During the Enterprise's first encounter with the Romulans, Spock learns of the common ancestry he shares with the Romulans."]);
@@ -195,7 +194,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2369,
 						'collection'=>'TV Series',
 						'numberInCollection'=>145,
-						'summary'=>"Picard's old mentor, Richard Galen, requests he take a leave of absence from his duties to complete an archaeological expedition of vast importance to the galaxy. The Cardassians, Klingons, and Romulans catch wind of this expedition, and they all race eachother to uncover the secrets that Galen's findings had hinted at. They are all led to a planet where they discover a recording of an ancient humanoid, who explains how their race was alone in the galaxy until they seeded out their DNA codes, eventually leading to the evolution of all other humanoid life."]);
+						'summary'=>"Picard's old mentor, Richard Galen, requests he take a leave of absence to complete an archaeological expedition of vast importance to the galaxy. The Cardassians, Klingons, and Romulans catch wind of this expedition, and they all race eachother to uncover the secrets that Galen's findings had hinted at. They are all led to a planet where they discover a recording of an ancient humanoid, who explains how their race was alone in the galaxy until they seeded out their DNA codes, eventually leading to the evolution of all other humanoid life."]);
 		/*2*/	App\Media::create(['name'=>'Star Trek: The Voyage Home',
 						'credit'=>'Leonard Nimoy',
 						'series'=>'TOS',
@@ -211,7 +210,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2373,
 						'collection'=>'Film Series',
 						'numberInCollection'=>8,
-						'summary'=>"During a battle between Earth and the Borg, the Borg make an attempt to travel back and time and prevent Humans from making first contact with the Vulcans. Picard and his crew follow them back to ensure the people of that time succeed in building the first warp engine."]);
+						'summary'=>"During a battle between Earth and the Borg, the Borg make an attempt to travel back in time and prevent Humans from making first contact with the Vulcans. Picard and his crew follow them back to ensure the people of that time succeed in building the first warp engine."]);
 		/*4*/	App\Media::create(['name'=>'First Contact',
 						'credit'=>'Cliff Bole',
 						'series'=>'TNG',
@@ -235,7 +234,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2285,
 						'collection'=>'Film Series',
 						'numberInCollection'=>2,
-						'summary'=>"Admiral Kirk faces an old foe, Khan Noonien Singh, who has obtained a device known as 'the Genesis Device'. The device was built witht the purpose of treating planets so they can sustain life, but Khan plans to use it as a weapon."]);
+						'summary'=>"Admiral Kirk faces an old foe, Khan Noonien Singh, who has obtained the Genesis Device. The device was built with the purpose of treating planets so they can sustain life, but Khan plans to use it as a weapon."]);
 		/*7*/	App\Media::create(['name'=>'Carbon Creek',
 						'credit'=>'James Contner',
 						'series'=>'ENT',
@@ -299,14 +298,14 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2266,
 						'collection'=>'TV Series',
 						'numberInCollection'=>14,
-						'summary'=>"The Enterprise detects a distress signal coming from a Federation Outpost along the neutral zone between the Federation and Romulan Empire. The Romulans seem to be testing new weapons against the Federation, and it also appears they have cloaking technology. This is the first time anyone on the Enterprise has ever seen a Romulan, and their resemblance to the Vulcans leads some crew members to suspect Spock of treachery."]);
+						'summary'=>"The Enterprise detects a distress signal coming from an Outpost along the neutral zone between the Federation and the Romulan Empire. The Romulans seem to be testing new weapons against the Federation, and it also appears they have cloaking technology. This is the first time anyone on the Enterprise has ever seen a Romulan, and their resemblance to the Vulcans leads some crew members to suspect Spock of treachery."]);
 		/*15*/	App\Media::create(['name'=>'First Contact (novel)',
 						'credit'=>'J.M. Dillard',
 						'series'=>'TNG',
 						'medium'=>'Book',
 						'timelineDate'=>2373,
 						'collection'=>'Pocket TNG',
-						'summary'=>"Novelization of the film Star Trek: First Contact."]);
+						'summary'=>"Novelization of the film 'Star Trek: First Contact'."]);
 		/*16*/	App\Media::create(['name'=>'Homefront',
 						'credit'=>'David Livingston',
 						'series'=>'DS9',
@@ -314,7 +313,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2372,
 						'collection'=>'TV Series',
 						'numberInCollection'=>81,
-						'summary'=>"Captain Sisko and others from the DS9 crew are called to Earth when suspicions arise that the Dominion has infiltrated Earth. The Federation is ill-equipped to handle the potential infiltration, and have to fall back on blood-testing to ensure no officer is a changeling in disguise."]);
+						'summary'=>"Captain Sisko and the DS9 crew are called to Earth when suspicions arise that the Dominion has infiltrated Earth. The Federation is ill-equipped to handle the potential infiltration, and have to fall back on blood-testing to ensure no officer is a changeling in disguise."]);
 		/*17*/	App\Media::create(['name'=>'Blood Oath',
 						'credit'=>'Winrich Kolbe',
 						'series'=>'DS9',
@@ -330,7 +329,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2375,
 						'collection'=>'TV Series',
 						'numberInCollection'=>151,
-						'summary'=>"Ezri is faced with the difficult decision of rather or not she should remain on DS9 as the station's councelor. In this episode, she gets to know Jadzia's friends on the station, and also tries to help Garak with an extreme case of claustrophobia he has been dealing with."]);
+						'summary'=>"Ezri has to decide if she should remain on DS9 as the station's councelor. In this episode, she gets to know Jadzia's old friends on the station, and also tries to help Garak with an extreme case of claustrophobia he has been dealing with."]);
 		/*19*/	App\Media::create(['name'=>'All Good Things...',
 						'credit'=>'Winrich Kolbe',
 						'series'=>'TNG',
@@ -338,7 +337,7 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2364,
 						'collection'=>'TV Series',
 						'numberInCollection'=>176,
-						'summary'=>"A spatial anomaly is threatening to prevent the evolution of humanity, and Picard must stop it. Q helps Picard realize that the anomaly is growing backwards in time by transporting him to different times in his life. Eventually Picard realizes how the anomaly can be stopped, leading Q to believe that there is hope for humanity after all."]);
+						'summary'=>"A spatial anomaly is threatening to prevent the evolution of humanity, and Picard must stop it. Q helps Picard realize that the anomaly is growing backwards in time by transporting him to different times in his life, and eventually Picard realizes how the anomaly can be stopped. Q realizes there may be hope for humanity after all."]);
 		/*20*/	App\Media::create(['name'=>'Star Trek: Insurrection',
 						'credit'=>'Jonathan Frakes',
 						'series'=>'TNG',
@@ -354,6 +353,6 @@ class MediaTableSeeder extends Seeder
 						'timelineDate'=>2371,
 						'collection'=>'Film Series',
 						'numberInCollection'=>1,
-						'summary'=>"Captain Picard enlists the help of a previously assumed dead Captain Kirk. Their mission is to stop a crazed scientist who is destroying entire planetary systems chasing an energy ribbon through space."]);
+						'summary'=>"Captain Picard enlists help from the previously assumed dead Captain Kirk. Their mission is to stop a crazed scientist who is destroying entire planetary systems."]);
 	}
 }
