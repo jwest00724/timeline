@@ -52,7 +52,7 @@ class EventController extends Controller
 		return view('forms/editEvent')->with(['tags'=>$tags, 'model'=>$model]);
 	}
 	
-	public function edit($id, Requests\CreateEventRequest $request) {
+	public function edit($id, Requests\EditEventRequest $request) {
 		
 		$event = \App\Event::get()->where('id', intval($id))->toArray();
 		if (empty($event)) {

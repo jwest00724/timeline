@@ -93,7 +93,7 @@ class MediaController extends Controller
 		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections, 'model'=>$model]);
 	}
 	
-	public function edit($id, Requests\CreateMediaRequest $request) {
+	public function edit($id, Requests\EditMediaRequest $request) {
 		
 		$media = \App\Media::get()->where('id', intval($id))->toArray();
 		if (empty($media)) {
