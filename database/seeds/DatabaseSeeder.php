@@ -100,7 +100,6 @@ class EventMediaTableSeeder extends Seeder
 		App\EventMedia::create(['eventID'=>10, 'mediaID'=>10]);
 		App\EventMedia::create(['eventID'=>17, 'mediaID'=>11]);
 		App\EventMedia::create(['eventID'=>15, 'mediaID'=>21]);
-		App\EventMedia::create(['eventID'=>16, 'mediaID'=>3]);
 		App\EventMedia::create(['eventID'=>16, 'mediaID'=>21]);
 		App\EventMedia::create(['eventID'=>21, 'mediaID'=>5]);
 		App\EventMedia::create(['eventID'=>20, 'mediaID'=>14]);
@@ -175,7 +174,7 @@ class EventsTableSeeder extends Seeder
 						'summary'=>"During the Enterprise's first encounter with the Romulans, Spock learns of the common ancestry he shares with the Romulans."]);
 		/*21*/	App\Event::create(['name'=>'The Dominion Infiltrates the Defiant',
 						'timelineDate'=>2371,
-						'summary'=>"A changeling is discovered abord the USS Defiant, who is able to disguise itself by taking the form of various crew members."]);
+						'summary'=>"A changeling is discovered abord the USS Defiant, who is able to disguise itself by taking the form of various crew members. Later, the Dominion is able to infiltrate planet Earth as well."]);
 		/*22*/	App\Event::create(['name'=>'Ancient Vulcan Weapon, Stoke of Gol, Unearthed',
 						'timelineDate'=>2370,
 						'summary'=>"An ancient Vulcan weapon with special properties is discovered. The weapon is special because it can only affect those with aggressive emotions."]);
