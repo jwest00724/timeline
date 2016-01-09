@@ -61,9 +61,8 @@
 					else action += id + '/' + leftID;
 					tableContent += '<form role="form" method="POST" action="' + action + '" style="display:inline;">';
 					tableContent += '{!! csrf_field() !!}';
-					tableContent += '<div><button type="submit" class="deleteRelationshipButton">x</button>';
-					//tableContent += '</form>';
-					tableContent += '<div class="name">' + name + '</div></div>' + "</form><br>";
+					tableContent += '<div style="clear:right;"><button type="submit" class="deleteRelationshipButton">x</button>';
+					tableContent += '<div class="name">' + name + '</div></div></form>';
 				});
 				
 				/* New relationship form */
@@ -72,7 +71,7 @@
 				else action += 'Event/' + leftID;
 				tableContent += '<form class="newRelationshipForm" data-id="' + leftID + '" role="form" method="POST" action="' + action + '">';
 				tableContent += '{!! csrf_field() !!}';
-				tableContent += '<button type="button" data-id="' + leftID + '" class="newRelationshipButton">+</button>';
+				tableContent += '<div style="clear:right;"><button type="button" data-id="' + leftID + '" class="newRelationshipButton">+</button>';
 				tableContent += '<select name="newItem" class="newRelationshipDropdown hidden" data-id="' + leftID + '">';
 				tableContent += '<option value=""> --- Select a relationship --- </option>';
 				var optionNames = (currentView == 'events' ? mediaNames : eventNames);
@@ -81,6 +80,7 @@
 				});
 				tableContent += '</select>';
 				tableContent += '</form>';
+				tableContent += '</div>';
 				tableContent += '</td>';
 				tableContent += '</tr>';
 				return tableContent;

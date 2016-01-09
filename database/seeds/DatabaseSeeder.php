@@ -35,7 +35,7 @@ class SeriesTableSeeder extends Seeder
 		App\Series::create(['seriesAbbreviation'=>'TOS', 'seriesName'=>'Star Trek: The Original Series']);
 		App\Series::create(['seriesAbbreviation'=>'TNG', 'seriesName'=>'Star Trek: The Next Generation']);
 		App\Series::create(['seriesAbbreviation'=>'DS9', 'seriesName'=>'Star Trek: Deep Space Nine']);
-		App\Series::create(['seriesAbbreviation'=>'temp', 'seriesName'=>'StSpace Nine']);
+		App\Series::create(['seriesAbbreviation'=>'ENT', 'seriesName'=>'Star Trek: Enterprise']);
 	}
 }
 
@@ -209,7 +209,7 @@ class MediaTableSeeder extends Seeder
 						'medium'=>'Film',
 						'timelineDate'=>2373,
 						'collection'=>'Film Series',
-						'numberInCollection'=>8,
+						'numberInCollection'=>2,
 						'summary'=>"During a battle between Earth and the Borg, the Borg make an attempt to travel back in time and prevent Humans from making first contact with the Vulcans. Picard and his crew follow them back to ensure the people of that time succeed in building the first warp engine."]);
 		/*4*/	App\Media::create(['name'=>'First Contact',
 						'credit'=>'Cliff Bole',
