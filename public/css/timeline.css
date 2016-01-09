@@ -1,10 +1,12 @@
-#leftButtons {
+#leftFilterButtons {
 	text-align: left;
 	float: left;
+	margin-right: 10px;
 }
 
-#rightButtons {
+#rightFilterButtons {
 	text-align: right;
+	margin-left: 10px;
 	float: right;
 }
 

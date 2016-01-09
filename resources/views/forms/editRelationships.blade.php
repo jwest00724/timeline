@@ -13,22 +13,24 @@
 		if (currentView == null) currentView = 'events';
 		
 		$(document).ready(function() {
-
+			
+			/* Remember scroll position from previous visit */
 			if ("scrollPosition" in localStorage) {
 				$('html,body').animate({scrollTop: localStorage.scrollPosition}, 1);
 			}
-
 			$(window).on('scroll', function() {
 				localStorage.scrollPosition = $(window).scrollTop();
 			});
-
+			
+			/* Remember view selection from previous visit */
 			var location = '{{ Request::url() }}';
 			if (currentView == 'media') {
 				fillTableByMedia();
 			} else {
 				fillTableByEvent();
 			}
-
+			
+			/* Order table by event */
 			function fillTableByEvent() {
 				var tableContent = '<thead><tr><th>Events</th><th>Media</th></tr></thead>';
 				$.each(eventToMedia, function(eventID, mediaArray) {
@@ -37,6 +39,7 @@
 				$('#relationships').html(tableContent);
 			}
 			
+			/* Order table by media */
 			function fillTableByMedia() {
 				var tableContent = '<thead><tr><th>Media</th><th>Events</th></tr></thead>';
 				$.each(mediaToEvents, function(mediaID, eventArray) {
@@ -45,6 +48,7 @@
 				$('#relationships').html(tableContent);
 			}
 			
+			/* Fill one row in the relationships table */
 			function rowBuilder(leftID, leftContent, rightArray) {
 				var action;
 				var tableContent = '';
@@ -62,7 +66,7 @@
 					tableContent += '<form role="form" method="POST" action="' + action + '" style="display:inline;">';
 					tableContent += '{!! csrf_field() !!}';
 					tableContent += '<div style="clear:right;"><button type="submit" class="deleteRelationshipButton">x</button>';
-					tableContent += '<div class="name">' + name + '</div></div></form>';
+					tableContent += '<div class="indented">' + name + '</div></div></form>';
 				});
 				
 				/* New relationship form */
@@ -86,11 +90,7 @@
 				return tableContent;
 			}
 			
-			$(document).on('change', '.newRelationshipDropdown', function() {
-				var id = $(this).attr('data-id');
-				$('.newRelationshipForm[data-id=' + id + ']').submit();
-			});
-			
+			/* Show new relationship form */
 			$(document).on('click', '.newRelationshipButton', function() {
 				var id = $(this).attr('data-id');
 				$('.newRelationshipDropdown').val('');
@@ -98,6 +98,13 @@
 				$('.newRelationshipDropdown[data-id=' + id + ']').toggle();
 			});
 			
+			/* Submit new relationship form */
+			$(document).on('change', '.newRelationshipDropdown', function() {
+				var id = $(this).attr('data-id');
+				$('.newRelationshipForm[data-id=' + id + ']').submit();
+			});
+			
+			/* Toggle view ordering */
 			$('#toggleViewButton').click(function() {
 				if (currentView == 'events') {
 					currentView = 'media';
@@ -114,10 +121,11 @@
 	
 	
 	<!-- Button to change the table view -->
-	<div id='toggleViewButtonHolder'>
-		<button type='button' id='toggleViewButton'><< = >></button>
-	</div>
+		<div id='toggleViewButtonHolder'>
+			<button type='button' id='toggleViewButton'><< = >></button>
+		</div>
 	
 	<!-- Table view of relationships -->
-	<table id='relationships'></table>
+		<table id='relationships'></table>
+		
 @endsection

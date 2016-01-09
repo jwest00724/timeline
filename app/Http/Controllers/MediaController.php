@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class MediaController extends Controller
 {
+	
+	/* Show media creation form */
 	public function createForm() {
 		$seriesAbbrToName = \App\Series::get()->pluck('seriesName', 'seriesAbbreviation')->toArray();
 		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');
 		$seriesToCollections = array();
+		
 		foreach($series as $thisSeries) {
 			$seriesToCollections[$thisSeries] =
 							\App\Media::select('collection')
@@ -24,9 +26,14 @@ class MediaController extends Controller
 							->toArray();
 		}
 		
-		return view('forms/newMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections]);
+		return view('forms/newMedia')->with([
+				'seriesAbbrToName'=>$seriesAbbrToName,
+				'mediums'=>$mediums,
+				'series'=>$series,
+				'seriesToCollections'=>$seriesToCollections]);
 	}
 	
+	/* Process media creation form */
     public function create(Requests\CreateMediaRequest $request) {
 		
 		$data = $request->all();
@@ -58,12 +65,11 @@ class MediaController extends Controller
 		return redirect('/');
 	}
 	
+	/* Show media editing form */
 	public function editForm($id) {
 		
 		$media = \App\Media::get()->where('id', intval($id))->toArray();
-		if (empty($media)) {
-			App:abort(404);
-		}
+		if (empty($media)) { App:abort(404); }
 		$media = current($media);
 		
 		$model = array();
@@ -90,18 +96,21 @@ class MediaController extends Controller
 							->toArray();
 		}
 		
-		return view('forms/editMedia')->with(['seriesAbbrToName'=>$seriesAbbrToName, 'mediums'=>$mediums, 'series'=>$series, 'seriesToCollections'=>$seriesToCollections, 'model'=>$model]);
+		return view('forms/editMedia')->with([
+				'seriesToCollections'=>$seriesToCollections,
+				'seriesAbbrToName'=>$seriesAbbrToName,
+				'mediums'=>$mediums,
+				'series'=>$series,
+				'model'=>$model]);
 	}
 	
+	/* Process media editing form */
 	public function edit($id, Requests\EditMediaRequest $request) {
 		
 		$media = \App\Media::get()->where('id', intval($id))->toArray();
-		if (empty($media)) {
-			App:abort(404);
-		}
+		if (empty($media)) { App:abort(404); }
 		
 		$data = $request->all();
-		
 		unset($data['_token']);
 		unset($data['newSeriesAbbr']);
 		unset($data['newSeriesName']);
@@ -116,21 +125,31 @@ class MediaController extends Controller
 		return redirect('/');
 	}
 	
+	/* Display media info */
 	public function show($id) {
 		
 		$media = \App\Media::where('id', $id)->get()->toArray();
-		if (empty($media)) {
-			App:abort(404);
-		}
+		if (empty($media)) { App:abort(404); }
 		$media = $media[0];
-		$events = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')->where('event_media.mediaID', $id)->get()->toArray();
-		return view('show/media')->with(['media'=>$media, 'events'=>$events]);
+		
+		$events = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')
+				->where('event_media.mediaID', $id)
+				->get()
+				->toArray();
+						
+		return view('show/media')->with([
+				'media'=>$media,
+				'events'=>$events]);
 	}
 	
+	/* Delete media entry */
 	public function delete($id) {
 		\App\Media::where('id', $id)->delete();
 		\App\EventMedia::where('mediaID', $id)->delete();
-		\App\Series::leftJoin('media', 'series.seriesAbbreviation', '=', 'media.series')->where('media.series', NULL)->delete();
+		\App\Series::leftJoin('media', 'series.seriesAbbreviation', '=', 'media.series')
+			->where('media.series', NULL)
+			->delete();
+			
 		return redirect('/');
 	}
 }

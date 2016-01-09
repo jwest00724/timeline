@@ -4,7 +4,7 @@
 	
 	<link rel='stylesheet' type='text/css' href='{!! asset("css/show.css") !!}'>
 
-	<div id='viewHolder'>
+	<div id='contentHolder'>
 		
 		<!-- Header -->
 		<div class='panelHolder'>

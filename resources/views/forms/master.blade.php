@@ -4,47 +4,51 @@
 	
 	<link rel='stylesheet' type='text/css' href='{!! asset("css/forms.css") !!}'>
 	
-	<script>
-		$(document).ready(function() {
-			$('#resetButton').click(function() {
-				location.reload();
+	<!-- Button Events -->
+		<script>
+			$(document).ready(function() {
+				$('#resetButton').click(function() {
+					location.reload();
+				});
+				$('#cancelButton').click(function() {
+					window.history.back();
+				});
 			});
-			$('#cancelButton').click(function() {
-				window.history.back();
-			});
-		});
-	</script>
+		</script>
 	
 	<!-- Form validation errors -->
-	@if (count($errors) > 0)
-		<div class='errorHolder'>
-		<div class="errors">
-			There were some problems with your input:
-			<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		</div></div>
-	@endif
+		@if (count($errors) > 0)
+			<div class='errorHolder'>
+			<div class="errors">
+				There were some problems with your input:
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div></div>
+		@endif
 	
-	<div class='formHolder'>
-		@yield('formContent')
-	</div>
+	<!-- Form Content -->
+		<div class='formHolder'>
+			@yield('formContent')
+		</div>
 	
-	<div class='buttonHolder'>
-		<div class='formButton'>
-			@yield('saveButton')
+	<!-- Save/Reset/Cancel Buttons -->
+		<div class='buttonHolder'>
+			<div class='formButton'>
+				@yield('saveButton')
+			</div>
+			<div class='formButton'>
+				@yield('resetButton')
+			</div>
+			<div class='formButton'>
+				@yield('cancelButton')
+			</div>
 		</div>
-		<div class='formButton'>
-			@yield('resetButton')
-		</div>
-		<div class='formButton'>
-			@yield('cancelButton')
-		</div>
-	</div>
 	
-	<div id='warningMessage'>
-		Note: This entry will not be visible in the timeline unless it is given a relationship in the relationship editor.
-	</div>
+	<!-- Warning Message -->
+		<div id='warningMessage'>
+			Note: This entry will not be visible in the timeline unless it is given a relationship in the relationship editor.
+		</div>
 @endsection

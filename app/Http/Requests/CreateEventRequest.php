@@ -23,8 +23,7 @@ class CreateEventRequest extends Request
      * @return array
      */
     public function rules()
-    {
-		
+    {	
         return [
             'name' => 'required|unique:events,name',
 			'timelineDate' => 'required',

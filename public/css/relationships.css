@@ -1,4 +1,3 @@
-
 #relationships {
 	margin-right: auto;
 	margin-left: auto;
@@ -10,12 +9,6 @@
 	width: 240px;
 }
 
-.name {
-	float: right;
-	width: 210px;
-	text-align: left;
-}
-
 #relationships th {
 	text-align: center;
 }
@@ -24,6 +17,7 @@
 	border-right: 1px solid blue;
 	border-top: 1px solid blue;
 	border-radius: 0px 20px 0px 0px;
+	text-align: left;
 }
 
 #relationships tr td:last-child {
@@ -31,13 +25,6 @@
 	border-top: 1px solid blue;
 	border-left: 1px solid blue;
 	border-collapse: separate;
-}
-
-#relationships tr td:first-child {
-	text-align: left;
-}
-
-#relationships tr td:nth-child(2) {
 	text-align: left;
 }
 
@@ -80,6 +67,12 @@
 
 .newRelationshipButton {
 	color:cyan;
+}
+
+.indented {
+	float: right;
+	width: 210px;
+	text-align: left;
 }
 
 .hidden {

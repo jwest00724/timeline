@@ -14,7 +14,7 @@
 		var filteredEvents;
 		var filteredMedia;
 		
-		/* Remove all filters from data */
+		/* Remove all applied filters */
 		function resetData() {
 			seriesToCollections = <?php echo json_encode($seriesToCollections) ?>;
 			eventMediaPairs = <?php echo json_encode($eventMediaPairs) ?>;
@@ -74,7 +74,7 @@
 				}
 			}
 			
-			/* Remove events that aren't related to new media */
+			/* Remove events with no relationships */
 			for (var eventDate = 0; eventDate < Object.keys(filteredDates).length; eventDate++) {
 				for (var event = Object.keys(newEvents[filteredDates[eventDate]]).length - 1; event >= 0 ; event--) {
 					var connection = false;
@@ -96,7 +96,7 @@
 				}
 			}
 			
-			/* Remove events that aren't related to new media */
+			/* Remove media with no relationships */
 			for (var mediaDate = 0; mediaDate < Object.keys(filteredDates).length; mediaDate++) {
 				for (var media = Object.keys(newMedia[filteredDates[mediaDate]]).length - 1; media >= 0; media--) {
 					var connection = false;
@@ -194,51 +194,51 @@
 	</script>
 	
 	<!-- Buttons to create new entries -->
-	<div id='topButtonHolder'>
-		<div id='newEventButton'>
-			<a href='{{ url("/newEvent") }}'>new event</a>
-		</div>
-		<div id='editRelationshipsButton'>
-			<a href='{{ url("/editRelationships") }}'>edit relationships</a>
-		</div>
-		<div id='newMediaButton'>
-			<a href='{{ url("/newMedia") }}'>new media</a>
-		</div>
-	</div>
-	
-	<!-- Buttons to filter events -->
-	<div id='leftButtons'>
-		<p class='label'>Tags</p>
-		@foreach($tags as $tag)
-			<button class='filterButton selected' data-filterType='tag'>{{ $tag }}</button><br>
-		@endforeach
-	</div>
-	
-	<!-- Buttons to filter media -->
-	<div id='rightButtons'>
-		<p class='label'>Series</p>
-		@foreach(array_keys($seriesToCollections) as $series)
-			<button class='filterButton selected' data-filterType='series' data-series='{{$series}}'>{{ $series }}</button><br>
-			<button class='expandCollapseButton' data-series='{{$series}}'>Show Collections</button><br>
-			<div class='collectionHolder' data-series='{{$series}}'>
-			@foreach($seriesToCollections[$series] as $collection)
-				<button class='compactFilterButton selected' data-filterType='collection' data-series='{{$series}}'>{{ $collection }}</button><br>
-			@endforeach
+		<div id='topButtonHolder'>
+			<div id='newEventButton'>
+				<a href='{{ url("/newEvent") }}'>new event</a>
 			</div>
-		@endforeach
-		<p class='label'>Mediums</p>
-		@foreach($mediums as $medium)
-			<button class='filterButton selected' data-filterType='medium'>{{ $medium }}</button><br>
-		@endforeach
-	</div>
+			<div id='editRelationshipsButton'>
+				<a href='{{ url("/editRelationships") }}'>edit relationships</a>
+			</div>
+			<div id='newMediaButton'>
+				<a href='{{ url("/newMedia") }}'>new media</a>
+			</div>
+		</div>
 	
-	<!-- Timeline display of events and media -->
-	<table id='timeline'>
-		<script>
-			resetData();
-			applySelectedFilters();
-			drawTimeline();
-		</script>
-	</table>
+	<!-- Event filter buttons -->
+		<div id='leftFilterButtons'>
+			<p class='label'>Tags</p>
+			@foreach($tags as $tag)
+				<button class='filterButton selected' data-filterType='tag'>{{ $tag }}</button><br>
+			@endforeach
+		</div>
+	
+	<!-- Media filter buttons -->
+		<div id='rightFilterButtons'>
+			<p class='label'>Series</p>
+			@foreach(array_keys($seriesToCollections) as $series)
+				<button class='filterButton selected' data-filterType='series' data-series='{{$series}}'>{{ $series }}</button><br>
+				<button class='expandCollapseButton' data-series='{{$series}}'>Show Collections</button><br>
+				<div class='collectionHolder' data-series='{{$series}}'>
+				@foreach($seriesToCollections[$series] as $collection)
+					<button class='compactFilterButton selected' data-filterType='collection' data-series='{{$series}}'>{{ $collection }}</button><br>
+				@endforeach
+				</div>
+			@endforeach
+			<p class='label'>Mediums</p>
+			@foreach($mediums as $medium)
+				<button class='filterButton selected' data-filterType='medium'>{{ $medium }}</button><br>
+			@endforeach
+		</div>
+	
+	<!-- Timeline display -->
+		<table id='timeline'>
+			<script>
+				resetData();
+				applySelectedFilters();
+				drawTimeline();
+			</script>
+		</table>
 	
 @endsection

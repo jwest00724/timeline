@@ -20,9 +20,9 @@ class TimelineController extends Controller
 	}
 	
 	/* Display timeline */
-    public function index() {
+	public function index() {
 		
-		/* Timeline info */
+		/* Get data for timeline */
 		$eventDates = \App\Event::select('timelineDate')->distinct()->get()->pluck('timelineDate')->toArray();
 		$mediaDates = \App\Media::select('timelineDate')->distinct()->get()->pluck('timelineDate')->toArray();
 		$dates = array_unique(array_merge($eventDates, $mediaDates), SORT_REGULAR);
@@ -39,7 +39,7 @@ class TimelineController extends Controller
 			$events[$date] = $eventsForThisDate;
 		}
 		
-		/* Filter info */
+		/* Get data for filters */
 		$mediums = \App\Media::select('medium')->distinct()->get()->pluck('medium')->toArray();
 		$tags = \App\EventTag::select('tag')->distinct()->get()->pluck('tag')->toArray();
 		$series = \App\Series::get()->pluck('seriesAbbreviation');
@@ -68,9 +68,17 @@ class TimelineController extends Controller
 							->toArray();
 		}
 		
-		/* Event-media connection info */
+		/* Get event-media relationships */
 		$eventMediaPairs = \App\EventMedia::get(array('eventID', 'mediaID'))->toArray();
 				
-		return view('timeline')->with(['tags'=>$tags, 'eventIDToTags'=>$eventIDToTags, 'eventMediaPairs'=>$eventMediaPairs, 'seriesToCollections'=>$seriesToCollections, 'mediums'=>$mediums, 'dates'=>$dates, 'events'=>$events, 'media'=>$media]);
+		return view('timeline')->with([
+				'seriesToCollections'=>$seriesToCollections,
+				'eventMediaPairs'=>$eventMediaPairs,
+				'eventIDToTags'=>$eventIDToTags,
+				'mediums'=>$mediums,
+				'events'=>$events,
+				'dates'=>$dates,
+				'media'=>$media,
+				'tags'=>$tags]);
 	}
 }

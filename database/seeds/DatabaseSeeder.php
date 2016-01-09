@@ -44,9 +44,9 @@ class EventTagsTableSeeder extends Seeder
 	public function run() {
 		App\EventTag::create(['eventID'=>1, 'tag'=>'First Contact']);
 		App\EventTag::create(['eventID'=>4, 'tag'=>'First Contact']);
-		App\EventTag::create(['eventID'=>5, 'tag'=>'Promotions']);
-		App\EventTag::create(['eventID'=>2, 'tag'=>'Promotions']);
-		App\EventTag::create(['eventID'=>23, 'tag'=>'Promotions']);
+		App\EventTag::create(['eventID'=>5, 'tag'=>'Promotion']);
+		App\EventTag::create(['eventID'=>2, 'tag'=>'Promotion']);
+		App\EventTag::create(['eventID'=>23, 'tag'=>'Promotion']);
 		App\EventTag::create(['eventID'=>18, 'tag'=>'Scientific Research']);
 		App\EventTag::create(['eventID'=>17, 'tag'=>'Scientific Research']);
 		App\EventTag::create(['eventID'=>6, 'tag'=>'Dominion War']);
@@ -56,8 +56,8 @@ class EventTagsTableSeeder extends Seeder
 		App\EventTag::create(['eventID'=>3, 'tag'=>'Galaxy Formation']);
 		App\EventTag::create(['eventID'=>9, 'tag'=>'Galaxy Formation']);
 		App\EventTag::create(['eventID'=>18, 'tag'=>'Galaxy Formation']);
-		App\EventTag::create(['eventID'=>11, 'tag'=>'Dax Lifecycles']);
-		App\EventTag::create(['eventID'=>12, 'tag'=>'Dax Lifecycles']);
+		App\EventTag::create(['eventID'=>11, 'tag'=>'Dax Lifecycle']);
+		App\EventTag::create(['eventID'=>12, 'tag'=>'Dax Lifecycle']);
 		App\EventTag::create(['eventID'=>13, 'tag'=>'Enterprise Progression']);
 		App\EventTag::create(['eventID'=>14, 'tag'=>'Enterprise Progression']);
 		App\EventTag::create(['eventID'=>15, 'tag'=>'Enterprise Progression']);
@@ -261,7 +261,7 @@ class MediaTableSeeder extends Seeder
 						'summary'=>"After Spock's death the Enterprise and her crew return to Earth, only to learn that the Enterprise is to be decommissioned. But once McCoy reveals that Spock may still be alive, Kirk decides to steal back the Enterprise and go on a mission to save Spock and return him to Vulcan. They are intercepted by the Klingons along the way, who have learned of the Genesis project and want to interfere."]);
 		/*10*/	App\Media::create(['name'=>'A Stitch in Time',
 						'credit'=>'Andrew Robinson',
-						'series'=>'TNG',
+						'series'=>'DS9',
 						'medium'=>'Book',
 						'timelineDate'=>2376,
 						'collection'=>'Pocket DS9',
