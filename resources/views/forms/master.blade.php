@@ -43,4 +43,8 @@
 			@yield('cancelButton')
 		</div>
 	</div>
+	
+	<div id='warningMessage'>
+		Note: This entry will not be visible in the timeline unless it is given a relationship in the relationship editor.
+	</div>
 @endsection

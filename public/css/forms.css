@@ -97,3 +97,13 @@ ul {
 	list-style-type: square;
 	text-align: left;
 }
+
+#warningMessage {
+	color: grey;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: -10px;
+	margin-bottom: 30px;
+	width: 300px;
+}
