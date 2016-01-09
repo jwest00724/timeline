@@ -27,12 +27,6 @@
 	border-collapse: separate;
 }
 
-#row {
-	text-indent: -1.3em;
-	padding-left: 1.3em;
-	margin: 0px;
-}
-
 #relationships tr td:first-child {
 	text-align: left;
 }
