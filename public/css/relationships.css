@@ -12,8 +12,8 @@
 
 .name {
 	float: right;
-	width: 200px;
-	text-align: right;
+	width: 210px;
+	text-align: left;
 }
 
 #relationships th {
@@ -75,11 +75,11 @@
 }
 
 .deleteRelationshipButton {
-	color:red;
+	color:orange;
 }
 
 .newRelationshipButton {
-	color:green;
+	color:cyan;
 }
 
 .hidden {
