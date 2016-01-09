@@ -61,9 +61,9 @@
 					else action += id + '/' + leftID;
 					tableContent += '<form role="form" method="POST" action="' + action + '" style="display:inline;">';
 					tableContent += '{!! csrf_field() !!}';
-					tableContent += '<button type="submit" class="deleteRelationshipButton">x</button>';
+					tableContent += '<div><button type="submit" class="deleteRelationshipButton">x</button>';
 					//tableContent += '</form>';
-					tableContent += name + "</form><br>";
+					tableContent += '<div class="name">' + name + '</div></div>' + "</form><br>";
 				});
 				
 				/* New relationship form */
