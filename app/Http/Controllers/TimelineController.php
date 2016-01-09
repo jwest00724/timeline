@@ -50,22 +50,22 @@ class TimelineController extends Controller
 		$eventIDs = \App\Event::get()->pluck('id');
 		foreach($eventIDs as $eventID) {
 			$eventIDToTags[$eventID] =
-							\App\EventTag::select('tag')
-							->where('eventID', $eventID)
-							->get()
-							->pluck('tag')
-							->toArray();
+					\App\EventTag::select('tag')
+					->where('eventID', $eventID)
+					->get()
+					->pluck('tag')
+					->toArray();
 		}
 		
 		$seriesToCollections = array();
 		foreach($series as $thisSeries) {
 			$seriesToCollections[$thisSeries] =
-							\App\Media::select('collection')
-							->where('series', $thisSeries)
-							->distinct()
-							->get()
-							->pluck('collection')
-							->toArray();
+					\App\Media::select('collection')
+					->where('series', $thisSeries)
+					->distinct()
+					->get()
+					->pluck('collection')
+					->toArray();
 		}
 		
 		/* Get event-media relationships */

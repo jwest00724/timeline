@@ -18,12 +18,12 @@ class MediaController extends Controller
 		
 		foreach($series as $thisSeries) {
 			$seriesToCollections[$thisSeries] =
-							\App\Media::select('collection')
-							->where('series', $thisSeries)
-							->distinct()
-							->get()
-							->pluck('collection')
-							->toArray();
+					\App\Media::select('collection')
+					->where('series', $thisSeries)
+					->distinct()
+					->get()
+					->pluck('collection')
+					->toArray();
 		}
 		
 		return view('forms/newMedia')->with([
@@ -88,12 +88,12 @@ class MediaController extends Controller
 		$seriesToCollections = array();
 		foreach($series as $thisSeries) {
 			$seriesToCollections[$thisSeries] =
-							\App\Media::select('collection')
-							->where('series', $thisSeries)
-							->distinct()
-							->get()
-							->pluck('collection')
-							->toArray();
+					\App\Media::select('collection')
+					->where('series', $thisSeries)
+					->distinct()
+					->get()
+					->pluck('collection')
+					->toArray();
 		}
 		
 		return view('forms/editMedia')->with([

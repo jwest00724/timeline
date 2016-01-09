@@ -38,10 +38,10 @@ class RelationshipController extends Controller
 		}
 		
 		return view('forms/editRelationships')->with([
-					'eventNames'=>$eventNames,
-					'mediaNames'=>$mediaNames,
-					'eventToMedia'=>$eventToMedia,
-					'mediaToEvents'=>$mediaToEvents]);
+				'eventNames'=>$eventNames,
+				'mediaNames'=>$mediaNames,
+				'eventToMedia'=>$eventToMedia,
+				'mediaToEvents'=>$mediaToEvents]);
 	}
 	
 	/* Delete a relationship */
@@ -58,9 +58,9 @@ class RelationshipController extends Controller
 	public function newMedia($eventID, Request $request) {
 		
 		$existingRelationship = \App\EventMedia::where('eventID', $eventID)
-								->where('mediaID', $request->newItem)
-								->get()
-								->toArray();
+				->where('mediaID', $request->newItem)
+				->get()
+				->toArray();
 								
 		if (empty($existingRelationship)) {
 			\App\EventMedia::create([
@@ -75,9 +75,9 @@ class RelationshipController extends Controller
 	public function newEvent($mediaID, Request $request) {
 		
 		$existingRelationship = \App\EventMedia::where('mediaID', $mediaID)
-								->where('eventID', $request->newItem)
-								->get()
-								->toArray();
+				->where('eventID', $request->newItem)
+				->get()
+				->toArray();
 								
 		if (empty($existingRelationship)) {
 			\App\EventMedia::create([
