@@ -29,6 +29,9 @@ class RelationshipController extends Controller
 			$mediaToEvents[$mediaID] = \App\Event::join('event_media', 'events.id', '=', 'event_media.eventID')->where('event_media.mediaID', $mediaID)->get()->pluck('name', 'id')->toArray();
 		}
 		
+		sort($eventNames);
+		sort($mediaNames);
+		
 		return view('forms/editRelationships')->with(['eventNames'=>$eventNames, 'mediaNames'=>$mediaNames, 'eventToMedia'=>$eventToMedia, 'mediaToEvents'=>$mediaToEvents]);
 	}
 	

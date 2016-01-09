@@ -13,13 +13,22 @@
 		if (currentView == null) currentView = 'events';
 		
 		$(document).ready(function() {
+
+			if ("scrollPosition" in localStorage) {
+				$('html,body').animate({scrollTop: localStorage.scrollPosition}, 1);
+			}
+
+			$(window).on('scroll', function() {
+				localStorage.scrollPosition = $(window).scrollTop();
+			});
+
 			var location = '{{ Request::url() }}';
 			if (currentView == 'media') {
 				fillTableByMedia();
 			} else {
 				fillTableByEvent();
 			}
-			
+
 			function fillTableByEvent() {
 				var tableContent = '<thead><tr><th>Events</th><th>Media</th></tr></thead>';
 				$.each(eventToMedia, function(eventID, mediaArray) {
