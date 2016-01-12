@@ -1,3 +1,9 @@
+# Star Trek Timeline
+## Purpose
+This app displays a timeline of events from Star Trek, as well as relevant media (episodes/films/books) for each event. This app makes it easy to track down all the Star Trek episodes that are part of a certain arc, or relevant for a certain event.
+
+The timeline can be filtered by series or medium, as well as tags that can be specified by the user. Events and media can be created/updated/removed from the timeline.
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
